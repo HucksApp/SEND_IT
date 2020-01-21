@@ -1,0 +1,264 @@
+body{
+        font-weight: bolder;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.nav-container{
+    display:flex;
+    justify-content: space-around;
+    background-attachment: fixed;
+    background-color: #E05548;
+    height:10vh; 
+    border:solid thin#f0f0f0;
+}
+
+.nav{
+    box-shadow: 2px, 2px 2px 2px #f0f0f0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:solid thin#f0f0f0;
+    width:100%;
+}
+
+nav {
+    text-align: center;
+}
+form{
+    height:60vh;
+    display:flex;
+    flex-flow: column;
+    border:solid #D3D3D3;
+    margin-left:5%;
+    margin-right: 5%;
+    overflow:scroll;
+    transition: height 0.9s;
+}
+form>*{
+    height:10vh;
+    padding:20px;
+}
+ 
+form input{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+form.admin button {
+    box-shadow: 2px 2px 2px 2px #f0f0f0;   
+}
+
+
+form button{
+    margin:5% 40%;
+    border-radius:10px;
+    font-size:1.1em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f00;
+    font-weight: bolder;
+    padding-bottom: 40px;
+    color:#fff;
+    box-shadow: 2px 2px 2px 2px #989898;
+
+}
+
+
+form.user.remv{
+    height: 0vh;
+}
+
+form.admin{
+    height: 0vh;
+    background-color: #f00;
+    color: #fff;
+    transition: height 0.9s;
+}
+
+form.admin button{
+    background-color: #000;
+    color: #fff;
+}
+
+form.admin.display{
+    height: 60vh;
+
+}
+
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.sign-option{
+    margin-left:5%;
+    margin-right: 5%;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.sign-option>*{
+    margin-right:5%;
+}
+
+
+.sign-option button{
+    background-color: #f00;
+    height:30px;
+    font-weight: bolder;
+    color:#fff;
+    box-shadow: 1px 1px 1px 1px #f0f0f0;
+    
+}
+
+footer{
+    
+    grid-column:1/5;
+    display:grid;
+    background-color: #f0f0f0;
+    border:solid thin #000;
+
+}
+.about{
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
+    align-items: center;
+    padding:20px;  
+    border:solid thin #000;
+}
+.contact-us{
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
+    align-items: center;
+    padding:20px;  
+    border:solid thin #000;
+}
+.copyright{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border:solid thin #000;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+    
+}
+.contact-us a{
+    color:#00f;
+}
+
+a:hover{
+    cursor: pointer;
+    opacity:0.7;
+}
+section{
+    display:table;
+    text-align: center;
+    width:100%;
+    margin-bottom:30px ;
+    
+}
+h3{
+    display:table-caption;
+    margin-bottom:30px;
+}
+.table-head{
+    background-color: #f0f0f0; 
+}
+.table-head, .table-data{
+    display: table-row;
+    text-align: center;
+}
+.delete{
+    color: #f00;
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+.delete:hover{
+    cursor: pointer;
+    transform: scale(1.3, 1.3);
+}
+.table-head p, .table-data p{
+    display:table-cell;
+    border: solid thin #fff;
+}
+.btn{
+    display:flex;
+    width:100%;
+    justify-content: space-around;
+}
+.btn button{
+color:#fff;
+background-color:#f00;
+font-weight: bolder;
+height:30px;
+border-bottom-right-radius:10px;
+border-top-left-radius: 10px;
+
+}
+.create-order, .edit-destination{
+    height: 0vh;
+    transition: all 0.8s;
+}
+
+.create-order.show, .edit-destination.show{
+    height:60vh;
+}
+
+button:hover , a:hover{
+    opacity:0.8;
+    cursor: pointer;
+
+}
+
+
+.table-data p.id{
+        color:#00f;
+}
+    
+.table-data p.id:hover{
+        cursor: pointer;
+    }
+
+@media Screen and (max-width:465px){
+
+    form button{
+        margin:5% 30%;
+        border-radius:10px;
+        font-size:0.8em;
+        
+    
+    }
+
+    section{
+        max-width:40px ;
+        border-collapse: collapse;  
+        white-space: nowrap; 
+    }
+.rap{
+    display: flex;
+    flex-wrap: wrap;
+}
+.table-data, .table-head{
+    display: flex;
+    flex-flow: column;
+    min-width: 30%;
+    margin: 5px;
+}
+.table-head{
+    border:thin solid #000;
+}
+    
+}
+
+
+        
+    
+
+}
