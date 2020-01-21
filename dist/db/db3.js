@@ -9,7 +9,7 @@ var _pg = require("pg");
 
 var client = new _pg.Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: false
+  ssl: true
 });
 exports.client = client;
 client.connect();
