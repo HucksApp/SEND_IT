@@ -18,7 +18,7 @@ newform.addEventListener('submit',(e)=>{
                                 headers:{
                                     "Content-Type":"application/json"
                                 },
-                                body:JSON.stringify({data})
+                                body:JSON.stringify(data)
                 })
                                 .then((res)=>{
                                     return res.json();
