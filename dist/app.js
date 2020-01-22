@@ -17,21 +17,10 @@ var _dotenv = _interopRequireDefault(require("dotenv"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // CONFIG AUTH ENVIROMENT
-_dotenv["default"].config(); //CREATE DATABASE SQL OR VERIFY DATABASE
+_dotenv["default"].config(); //APP
 
 
-(0, _createSQL["default"])(_db.client); //APP
-
-var app = (0, _express["default"])(); // BODY PARSER MIDDLEWARE
-
-var urlencodedParser = _bodyParser["default"].urlencoded({
-  extended: false
-});
-
-var jsonParser = _bodyParser["default"].json();
-
-app.use(urlencodedParser);
-app.use(jsonParser); // GENERAL API RESPONSE HEADER 
+var app = (0, _express["default"])(); // GENERAL API RESPONSE HEADER 
 
 app.use(function (req, res, next) {
   res.set(_headers.header);
@@ -40,7 +29,18 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
   next();
-}); // MOUNT THE SUB APP
+}); //CREATE DATABASE SQL OR VERIFY DATABASE
+
+(0, _createSQL["default"])(_db.client); // BODY PARSER MIDDLEWARE
+
+var urlencodedParser = _bodyParser["default"].urlencoded({
+  extended: false
+});
+
+var jsonParser = _bodyParser["default"].json();
+
+app.use(urlencodedParser);
+app.use(jsonParser); // MOUNT THE SUB APP
 
 app.use('/api/v1', _router["default"]); //ERROR HANDLING
 

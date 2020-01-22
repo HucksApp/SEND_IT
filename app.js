@@ -10,7 +10,8 @@ import dotenv from 'dotenv';
 // CONFIG AUTH ENVIROMENT
 dotenv.config();
 
-
+//APP
+const app = express();
 
 // GENERAL API RESPONSE HEADER 
 app.use(function(req, res, next){
@@ -18,13 +19,12 @@ app.use(function(req, res, next){
     res.set(header);
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+    res.setHeader("Access-Control-Allow-Methods", "GET,DELETE,POST,PUT");
+    res.setHeader("Access-Control-Allow-Headers",
+     "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
     next();
 
 });
-
-
 
 
 
@@ -32,9 +32,6 @@ app.use(function(req, res, next){
 createSQL(db);
 
 
-
-//APP
-const app = express();
 
 // BODY PARSER MIDDLEWARE
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
