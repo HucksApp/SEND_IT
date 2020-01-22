@@ -42,7 +42,6 @@ router.put('/update_profile', auth, (req,res)=>{
     if(req.session){
         const {keyToValue, newVal} = req.body;
         const { email }= req.session._ctx.decoded;
-        res.send(req.session._ctx.decoded)
         const id = email;
         if(keyToValue =='user-name'){
         db.query('UPDATE users SET username = $1 WHERE email = $2 ',[newVal,id],(err, result)=>{
@@ -114,6 +113,7 @@ router.post('/old_user', (req, res)=>{
 
             }else if(token){
                 console.log('JUST HERE 3');
+                req.session = {id: email};
                 message="LOGGED IN SUCCESFULLY AND SESSION CREATED";
                 res.status(200).json({ message, token, expire: "1 HOUR", valid:true })
             }else{
