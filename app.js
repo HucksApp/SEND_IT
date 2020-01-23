@@ -27,6 +27,13 @@ app.use(function(req, res, next){
 });
 
 
+// SESSION
+app.use(cookieSession({
+    name:"userSession",
+    maxAge:60*60*1000,
+    keys:[process.env.COOKIE_KEY]
+}));
+
 
 //CREATE DATABASE SQL OR VERIFY DATABASE
 createSQL(db);

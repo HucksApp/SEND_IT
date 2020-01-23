@@ -10,12 +10,6 @@ const app = express();
 
 
 
-// SESSION
-app.use(cookieSession({
-    name:"userSession",
-    maxAge:60*60*1000,
-    keys:[process.env.COOKIE_KEY]
-}));
 
 // END SESSION -route common to all users i.e Admin and User
 app.get('/logout', (req, res)=>{
