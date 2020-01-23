@@ -44,7 +44,12 @@ const jsonParser = bodyParser.json();
 
 app.use(urlencodedParser);
 app.use(jsonParser);
-
+// SESSION
+app.use(cookieSession({
+    name:"userSession",
+    maxAge:60*60*1000,
+    keys:[ process.env.COOKIE_KEY ]
+}));
 
 
 
