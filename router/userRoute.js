@@ -40,9 +40,9 @@ router.get('/account', auth, (req,res)=>{
 
 router.put('/update_profile', auth, (req,res)=>{
     if(req.session){
-        const {keyToValue, newVal, email} = req.body;
-        const { emailSes }= req.session._ctx.decoded;
-        const id = email || emailSes;
+        const {keyToValue, newVal} = req.body;
+        const { email }= req.session._ctx.decoded;
+        const id = email;
         if(keyToValue =='user-name'){
         db.query('UPDATE users SET username = $1 WHERE email = $2 ',[newVal,id],(err, result)=>{
             if (err){
