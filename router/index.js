@@ -2,7 +2,6 @@ import express from 'express';
 import userRouter from './userRoute.js';
 import orderRouter from './orderRoute.js';
 import adminRouter from './adminRoute.js';
-import cookieSession from 'cookie-session';
 
 
 

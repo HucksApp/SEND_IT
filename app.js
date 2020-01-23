@@ -4,6 +4,7 @@ import  { header }  from './config/headers.js'
 import createSQL from './db/createSQL.js';
 import  { client as db } from './db/db3.js';
 import route from './router'
+import cookieSession from 'cookie-session';
 
 import dotenv from 'dotenv';
 
@@ -20,10 +21,10 @@ const app = express();
 // GENERAL API RESPONSE HEADER 
 app.use(function(req, res, next){
 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,DELETE,POST,PUT");
-    res.header("Access-Control-Allow-Headers",
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Methods", "GET,DELETE,POST,PUT");
+    res.setHeader("Access-Control-Allow-Headers",
      "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
     next();
 
@@ -54,6 +55,8 @@ app.use(cookieSession({
 
 // MOUNT THE SUB APP
 app.use('/api/v1', route);
+
+
 
 //ERROR HANDLING
 app.all('*',(req,res)=>{
