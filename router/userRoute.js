@@ -23,10 +23,12 @@ router.get('/account', auth, (req,res)=>{
         
         db.query('SELECT * FROM users WHERE email= $1',[id],(err, result)=>{
             if (err){
-                console.log(err);
-            }
+                res.send(err)
+            }else{
+
             res.status(200).json(result.rows)
             console.log('here 4')
+            }
         });
     }else{
         console.log('here 5')
