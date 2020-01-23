@@ -15,12 +15,6 @@ const app = express();
 
 
 
-// SESSION
-app.use(cookieSession({
-    name:"userSession",
-    maxAge:60*60*1000,
-    keys:[process.env.COOKIE_KEY]
-}));
 
 
 // GENERAL API RESPONSE HEADER 
@@ -35,6 +29,15 @@ app.use(function(req, res, next){
     next();
 
 });
+
+
+// SESSION
+app.use(cookieSession({
+    name:"userSession",
+    maxAge:60*60*1000,
+    keys:[process.env.COOKIE_KEY]
+}));
+
 
 
 
