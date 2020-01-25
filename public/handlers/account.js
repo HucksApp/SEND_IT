@@ -3,6 +3,7 @@ const inputs= document.getElementsByTagName('input');
 const  containers = document.querySelectorAll('span.value');
 const changes = document.getElementsByClassName('change');
 const logout = document.getElementById('logout');
+const token = sessionStorage.getItem('token');
 
 
 
@@ -36,16 +37,18 @@ change.addEventListener('click',(e)=>{
         if(e.target.classList.contains(input.id) && input.value !=""){
 
             let data = {newVal:input.value, keyToValue:input.id};
+
             console.log(data);
-            fetch('/update_profile',{
+            fetch('https://s-i-api.herokuapp.com/api/v1/update_profile',{
                     method:"PUT",
                     headers:{
                         "Content-Type":"application/json",
-                        "Accept":"application/json, text/plain, */*"
+                        Authorization: token
                     },
                     body: JSON.stringify(data)
             }).then((response)=>{
                 console.log(response);
+                console.log(token)
                 input.value="";
              input.classList.remove('show');  
              window.alert(` You Just Updated \n Your ${input.id}`)    
@@ -98,11 +101,14 @@ logout.addEventListener('click',(e)=>{
     }else if (chk == true){
 
 
-        fetch('/logout').then((res)=>{
+        fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
         return res.json();
     }).then((message)=>{
         console.log(message.message);
         window.location.replace('./index.html')
+            sessionStorage.clear();
+
+        window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
 
     })
 

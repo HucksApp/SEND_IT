@@ -1,6 +1,17 @@
 window.addEventListener('load',()=>{
+    const adminToken = sessionStorage.getItem('adminToken');
 
-    fetch('/admin_orders')
+    if(!adminToken){
+        window.alert("CAN'T FIND ADMIN CREDENTIALS !!!")
+        location.assign('./user_signin.html')
+    }else {
+
+    fetch('https://s-i-api.herokuapp.com/api/v1/admin_orders',{
+        headers:{
+            Authorization: adminToken
+        }
+
+    })
         .then((res)=>{
         return res.json();
     })
@@ -61,8 +72,8 @@ window.addEventListener('load',()=>{
 
         console.log(data)
 
-    })
+     })
 
-
+    }
 });
 

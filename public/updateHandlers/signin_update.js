@@ -10,11 +10,11 @@ const uData = {
     email: formOldUser.email.value,
     password: formOldUser.password.value 
 };
-
-fetch('/old_user',{
+document.getElementById('sbu').disabled=true;
+fetch( 'https://s-i-api.herokuapp.com/api/v1/old_user' ,{
                 method:"POST",
                 headers:{
-                    "Content-Type":"application/json"
+                    "Content-Type":"application/json",
                 },
                 body:JSON.stringify(uData)
             }).then((res)=>{
@@ -22,11 +22,15 @@ fetch('/old_user',{
                 return res.json();
             })
             .then((data)=>{
+                document.getElementById('sbu').disabled=false;
+                console.log(data.token);
                 console.log(data)
                 if (data.valid == false){
                     window.alert(data.message);
                 }else if(data.valid == true){
-                        window.location.replace('./account.html')
+
+                    sessionStorage.setItem( 'token', data.token );
+                    window.location.assign('./account.html');
                 }
 
                 }
@@ -43,21 +47,23 @@ console.log('fired!!!');
                     email: formAdmin.email.value,
                     password: formAdmin.password.value
         };
-
-fetch('/admin',{
+        document.getElementById('asb').disabled=true;
+fetch('https://s-i-api.herokuapp.com/api/v1/admin',{
             method: "POST",
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
             },
             body: JSON.stringify(data)
 }).then((res)=>{
     return res.json()
 }).then((data)=>{
+    document.getElementById('asb').disabled=false;
             if (data.valid == false){
                 window.alert(data.message)
             }   else if (data.valid == true){
-
-                window.location.replace('./admin.html');
+                sessionStorage.setItem('adminToken', data.token);
+                console.log(data);
+                window.location.assign('./admin.html');
 
             }   
 })

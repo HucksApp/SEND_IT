@@ -138,3 +138,8 @@ button:hover{
     color:#fff;
     font-weight: bolder;
 }
+
+
+span[disabled]:hover{
+cursor: not-allowed;
+}

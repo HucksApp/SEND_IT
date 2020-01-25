@@ -9,15 +9,16 @@
     <script>
         window.addEventListener('load',()=>{
          const logout = document.getElementById('logout');
+         const username =sessionStorage.getItem('username');
+         if(username){
 
             const userDump =document.getElementById('dump');
-                fetch('/account').then((res)=>{
-                    return res.json();
-                }).then((data)=>{
-                    console.log(data)
-                    userDump.textContent=data[0].username;
-                })
+                userDump.textContent=username
 
+         }else{
+                window.location.assign('./user_signin.html');
+                window.alert('YOU ARE NOT SIGNED IN');
+         };
 
                 logout.addEventListener('click',(e)=>{
             e.preventDefault();
@@ -27,13 +28,16 @@
             }else if (chk == true){
 
 
-                fetch('/logout').then((res)=>{
-                return res.json();
-            }).then((message)=>{
-                console.log(message.message);
-                window.location.replace('./index.html')
+                fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
+        return res.json();
+    }).then((message)=>{
+        console.log(message.message);
+        window.location.replace('./index.html')
+            sessionStorage.clear();
 
-            })
+        window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
+
+    })
 
             }
 

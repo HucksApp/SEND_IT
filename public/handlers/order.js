@@ -9,9 +9,10 @@ const btnOne = document.getElementById('btn-1');
 const btnTwo = document.getElementById('btn-2');
 const idCount = document.querySelectorAll('.table-data p.id a.id-ach');
 const logout = document.getElementById('logout');
+const token = sessionStorage.getItem('token');
 
 
-
+if(token){
 
 
 btnOne.addEventListener('click',(e)=>{
@@ -47,13 +48,16 @@ btnTwo.addEventListener('click',(e)=>{
         }else if (chk == true){
 
 
-            fetch('/logout').then((res)=>{
-            return res.json();
-        }).then((message)=>{
-            console.log(message.message);
-            window.location.replace('./index.html')
-
-        })
+            fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
+                return res.json();
+            }).then((message)=>{
+                console.log(message.message);
+                window.location.assign('./index.html')
+                    sessionStorage.clear();
+        
+                window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
+        
+            })
 
         }
 
@@ -100,11 +104,11 @@ btnTwo.addEventListener('click',(e)=>{
             };
             console.log(data)
              
-            fetch('/new_order',{
+            fetch('https://s-i-api.herokuapp.com/api/v1/new_order',{
                             method:"POST",
                             headers:{
-                                "Accept":"application/json, */*",
-                                "Content-Type":"application/json"
+                                "Content-Type":"application/json",
+                                Authorization: token
                             },
                             body:JSON.stringify(data)
             }).then((res)=>{
@@ -127,10 +131,11 @@ btnTwo.addEventListener('click',(e)=>{
         e.preventDefault();
         const upDestnAddress= formTwo.destination_address.value;
         const ordId= formTwo.id.value;
-        fetch('/update_destination',{
+        fetch('https://s-i-api.herokuapp.com/api/v1/update_destination',{
                         method:"PUT",
                         headers:{
-                            "Content-Type":"application/json"
+                            "Content-Type":"application/json",
+                            Authorization: token
                         },
                         body:JSON.stringify({upDestnAddress, ordId})
         }).then((result)=>{
@@ -228,8 +233,12 @@ btnTwo.addEventListener('click',(e)=>{
     const del =  e.target.classList.value.replace(/delete /g, '');
 
 
-        fetch('/delete_order/'+del,{
-                        method:"DELETE"
+
+        fetch('https://s-i-api.herokuapp.com/api/v1/delete_order/'+del,{
+                        method:"DELETE",
+                        headers:{
+                        Authorization: token
+                        }
                             }).then((response)=>{
             console.log(response)
         });
@@ -252,9 +261,24 @@ btnTwo.addEventListener('click',(e)=>{
     }
 
 
-fetch('/order').then((res)=>{
+fetch('https://s-i-api.herokuapp.com/api/v1/order',{
+
+                    headers:{
+                        Authorization: token
+                    }
+
+                }).then((res)=>{
                     return res.json();
                 }).then((result)=>{
+                if(result.length == 0){
+
+                    const orderList = document.querySelector('div.rap');
+                        orderList.textContent= "YOU HAVE NO ORDER YET"
+                    
+
+                }else{
+
+                
                 result.forEach((order)=>{
                     const {order_id,receiver_name,destination_address,pickup_address,receiver_phone_no,order_date}= order;
                    const ordD =order_date.split('T')[0]
@@ -263,9 +287,13 @@ createOrder (order_id,receiver_name,destination_address,pickup_address,receiver_
 
                     
                 } );
+            }
 
-                })
+     })
 
-
+    }else{
+        window.location.assign('./user_signin.html');
+        window.alert('YOU ARE NOT SIGNED IN')
+    }
                 
         });

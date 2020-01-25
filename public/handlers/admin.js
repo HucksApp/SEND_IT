@@ -5,6 +5,7 @@ const btnTwo = document.querySelector('.status');
 const sub_destn= document.querySelector('.sub_destn');
 const sub_status= document.querySelector('.sub_status');
 const logout = document.getElementById('logout');
+const adminToken = sessionStorage.getItem('adminToken');
 
 
 
@@ -61,10 +62,11 @@ sub_destn.addEventListener('click',(e)=>{
     };
 
 
-    fetch('/update_location',{
+    fetch('https://s-i-api.herokuapp.com/api/v1/update_location',{
                 method:'PUT',
                 headers:{
-                    "Content-Type":"application/json"
+                    "Content-Type":"application/json",
+                    Authorization: adminToken
                 },
                 body:JSON.stringify(data)
     }).then((response)=>{
@@ -111,10 +113,11 @@ sub_status.addEventListener('click',(e)=>{
     };
 
 
-    fetch('/update_status',{
+    fetch('https://s-i-api.herokuapp.com/api/v1/update_status',{
                 method:'PUT',
                 headers:{
-                    "Content-Type":"application/json"
+                    "Content-Type":"application/json",
+                    Authorization: adminToken
                 },
                 body:JSON.stringify(data)
     }).then((response)=>{
@@ -144,13 +147,18 @@ logout.addEventListener('click',(e)=>{
     }else if (chk == true){
 
 
-        fetch('/logout').then((res)=>{
-        return res.json();
-    }).then((message)=>{
-        console.log(message.message);
-        window.location.replace('./index.html')
+     
+        fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
+            return res.json();
+        }).then((message)=>{
+            console.log(message.message);
+            window.location.assign('./index.html')
+                sessionStorage.clear();
+    
+            window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
+    
+        })
 
-    })
 
     }
 
