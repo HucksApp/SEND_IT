@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha",
     "build": "rm -Rf ./dist && babel . --out-dir ./dist --ignore ./node_modules,./.heroku",
-    "start": " npm run build && node ./dist/app.js",
+    "start": " npm run build && node ./dist/app.js"
   },
   "author": "HucksApp",
   "license": "ISC",
