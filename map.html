@@ -42,7 +42,7 @@ console.log(token)
     } ).then((res)=>{
         return res.json();
     }).then((data)=>{
-      console.log(res)
+      console.log(data)
         pickup=data[0].pickup_address;
         presentLoc = data[0].c_location;
     })
