@@ -21,10 +21,10 @@ const app = express();
 // GENERAL API RESPONSE HEADER 
 app.use(function(req, res, next){
 
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET,DELETE,POST,PUT");
-    res.setHeader("Access-Control-Allow-Headers",
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,DELETE,POST,PUT");
+    res.header("Access-Control-Allow-Headers",
      "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
     next();
 
