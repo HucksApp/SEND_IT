@@ -174,7 +174,7 @@ btnTwo.addEventListener('click',(e)=>{
                 idAnchor.addEventListener('click',(e)=>{
                         e.preventDefault();
 
-                    window.location.replace('./map.html?id='+ id)
+                    window.location.assign('./map.html?id='+ id)
                 });
 
 
