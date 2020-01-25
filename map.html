@@ -30,8 +30,13 @@
 let pickup;
 let presentLoc;
 const queryId = window.location.search.replace('?id=',"");
+const token = sessionStorage.getItem('token');
 
-    fetch('/map?ordCk='+queryId ).then((res)=>{
+    fetch('https://s-i-api.herokuapp.com/api/v1/map?ordCk='+queryId,{
+                 headers:{ Authorization: token
+                 }
+
+    } ).then((res)=>{
         return res.json();
     }).then((data)=>{
         pickup=data[0].pickup_address;
