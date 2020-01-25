@@ -67,7 +67,7 @@ router.put('/update_destination', _auth["default"], function (req, res) {
   }
 }); //GET ORDER LOCATION
 
-router.get('/map', function (req, auth, res) {
+router.get('/map', _auth["default"], function (req, auth, res) {
   if (req.session._ctx) {
     var email = req.session._ctx.decoded.email;
     var id = email;
