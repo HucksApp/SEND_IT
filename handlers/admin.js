@@ -152,7 +152,7 @@ logout.addEventListener('click',(e)=>{
             return res.json();
         }).then((message)=>{
             console.log(message.message);
-            window.location.assign('./index.html')
+            window.location.assign('./home.html')
                 sessionStorage.clear();
     
             window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
