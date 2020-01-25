@@ -63,7 +63,7 @@ router.put('/update_destination',auth,(req,res)=>{
 
 
 //GET ORDER LOCATION
-router.get('/map',auth,(req,auth,res)=>{
+router.get('/map',auth,(req,res)=>{
     if(req.session._ctx ){
         const { email }= req.session._ctx.decoded;
         const id = email;
