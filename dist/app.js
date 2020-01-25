@@ -8,9 +8,11 @@ var _headers = require("./config/headers.js");
 
 var _createSQL = _interopRequireDefault(require("./db/createSQL.js"));
 
-var _db = require("./db/db3.js");
+var _db = require("./db/db.js");
 
 var _router = _interopRequireDefault(require("./router"));
+
+var _cookieSession = _interopRequireDefault(require("cookie-session"));
 
 var _dotenv = _interopRequireDefault(require("dotenv"));
 
@@ -23,7 +25,6 @@ _dotenv["default"].config(); //APP
 var app = (0, _express["default"])(); // GENERAL API RESPONSE HEADER 
 
 app.use(function (req, res, next) {
-  res.set(_headers.header);
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Methods", "GET,DELETE,POST,PUT");
@@ -40,7 +41,13 @@ var urlencodedParser = _bodyParser["default"].urlencoded({
 var jsonParser = _bodyParser["default"].json();
 
 app.use(urlencodedParser);
-app.use(jsonParser); // MOUNT THE SUB APP
+app.use(jsonParser); // SESSION
+
+app.use((0, _cookieSession["default"])({
+  name: "userSession",
+  maxAge: 60 * 60 * 1000,
+  keys: [process.env.COOKIE_KEY]
+})); // MOUNT THE SUB APP
 
 app.use('/api/v1', _router["default"]); //ERROR HANDLING
 

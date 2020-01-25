@@ -1,6 +1,6 @@
 import express from 'express';
 import auth,{ generateToken } from '../config/auth/auth.js';
-import  { client as db } from '../db/db3.js';
+import  { client as db } from '../db/db.js';
 
 
 const router = express.Router();

@@ -13,17 +13,9 @@ var _orderRoute = _interopRequireDefault(require("./orderRoute.js"));
 
 var _adminRoute = _interopRequireDefault(require("./adminRoute.js"));
 
-var _cookieSession = _interopRequireDefault(require("cookie-session"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var app = (0, _express["default"])(); // SESSION
-
-app.use((0, _cookieSession["default"])({
-  name: "userSession",
-  maxAge: 60 * 60 * 1000,
-  keys: [process.env.COOKIE_KEY]
-})); // END SESSION -route common to all users i.e Admin and User
+var app = (0, _express["default"])(); // END SESSION -route common to all users i.e Admin and User
 
 app.get('/logout', function (req, res) {
   req.session = null;

@@ -9,7 +9,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var _auth = _interopRequireDefault(require("../config/auth/auth.js"));
 
-var _db = require("../db/db3.js");
+var _db = require("../db/db.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

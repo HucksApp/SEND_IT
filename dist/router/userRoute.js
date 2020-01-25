@@ -11,7 +11,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var _auth = _interopRequireWildcard(require("../config/auth/auth.js"));
 
-var _db = require("../db/db3.js");
+var _db = require("../db/db.js");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -32,11 +32,11 @@ router.get('/account', _auth["default"], function (req, res) {
 
     _db.client.query('SELECT * FROM users WHERE email= $1', [id], function (err, result) {
       if (err) {
-        console.log(err);
+        res.send(err);
+      } else {
+        res.status(200).json(result.rows);
+        console.log('here 4');
       }
-
-      res.status(200).json(result.rows);
-      console.log('here 4');
     });
   } else {
     console.log('here 5');
@@ -49,8 +49,10 @@ router.put('/update_profile', _auth["default"], function (req, res) {
     var _req$body = req.body,
         keyToValue = _req$body.keyToValue,
         newVal = _req$body.newVal;
+    console.log(req.body, req.session);
     var email = req.session._ctx.decoded.email;
     var id = email;
+    console.log(email);
 
     if (keyToValue == 'user-name') {
       _db.client.query('UPDATE users SET username = $1 WHERE email = $2 ', [newVal, id], function (err, result) {
@@ -73,10 +75,13 @@ router.put('/update_profile', _auth["default"], function (req, res) {
         }
       });
     } else if (keyToValue == 'phone-number') {
+      console.log('here phone');
+
       _db.client.query('UPDATE users SET phone_number = $1 WHERE email = $2 ', [newVal, id], function (err, result) {
         if (err) {
           console.log(err);
         } else if (result) {
+          console.log('here devivered');
           res.send('MODIFIED');
         } else {
           res.send('COMMAND UNKNOWN');
@@ -128,6 +133,9 @@ router.post('/old_user', function (req, res) {
             });
           } else if (token) {
             console.log('JUST HERE 3');
+            req.session = {
+              id: email
+            };
             message = "LOGGED IN SUCCESFULLY AND SESSION CREATED";
             res.status(200).json({
               message: message,

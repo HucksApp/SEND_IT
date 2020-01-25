@@ -1,12 +1,10 @@
-/*import pg  from  'pg'; 
-    const Pool = pg.Pool;
-  const pool = new Pool({
-    user:"Ahrabprince",
-    host:"localhost",
-    database:"hucks",
-    password:"pussypie",
-    port:5432
+import { Client } from 'pg';
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
 });
 
- const client = pool;
-export { client  };*/
+client.connect();
+
+export { client }; 

@@ -11,7 +11,7 @@ var _express = _interopRequireDefault(require("express"));
 
 var _auth = _interopRequireWildcard(require("../config/auth/auth.js"));
 
-var _db = require("../db/db3.js");
+var _db = require("../db/db.js");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 

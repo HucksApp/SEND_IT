@@ -1,6 +1,6 @@
 import express from 'express';
 import auth,{ generateToken } from '../config/auth/auth.js';
-import  { client as db } from '../db/db3.js';
+import  { client as db } from '../db/db.js';
 
 
 const router = express.Router();
@@ -43,8 +43,10 @@ router.get('/account', auth, (req,res)=>{
 router.put('/update_profile', auth, (req,res)=>{
     if(req.session){
         const {keyToValue, newVal} = req.body;
+        console.log(req.body, req.session)
         const { email }= req.session._ctx.decoded;
         const id = email;
+        console.log(email)
         if(keyToValue =='user-name'){
         db.query('UPDATE users SET username = $1 WHERE email = $2 ',[newVal,id],(err, result)=>{
             if (err){
@@ -66,10 +68,12 @@ router.put('/update_profile', auth, (req,res)=>{
                 }     
             });
         }else if(keyToValue =='phone-number'){
+            console.log('here phone');
             db.query('UPDATE users SET phone_number = $1 WHERE email = $2 ',[newVal,id],(err, result)=>{
                 if (err){
                     console.log(err)
                 }else if(result){
+                    console.log('here devivered')
                     res.send('MODIFIED');
                 }else{
                     res.send('COMMAND UNKNOWN');

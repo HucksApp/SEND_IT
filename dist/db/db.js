@@ -1,13 +1,15 @@
-/*import pg  from  'pg'; 
-    const Pool = pg.Pool;
-  const pool = new Pool({
-    user:"Ahrabprince",
-    host:"localhost",
-    database:"hucks",
-    password:"pussypie",
-    port:5432
-});
-
- const client = pool;
-export { client  };*/
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.client = void 0;
+
+var _pg = require("pg");
+
+var client = new _pg.Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: false
+});
+exports.client = client;
+client.connect();

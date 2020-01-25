@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import  { header }  from './config/headers.js'
 import createSQL from './db/createSQL.js';
-import  { client as db } from './db/db3.js';
+import  { client as db } from './db/db.js';
 import route from './router'
 import cookieSession from 'cookie-session';
 
