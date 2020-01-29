@@ -32,10 +32,10 @@
         return res.json();
     }).then((message)=>{
         console.log(message.message);
-        window.location.replace('./home.html')
+        window.location.href='./home.html'
             sessionStorage.clear();
+        toast('YOU HAVE LOGGED OUT SUCCESSFULLY')
 
-        window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
 
     })
 
@@ -47,6 +47,27 @@
 
 
         });
+
+
+
+const toast =(message)=>{
+    const options={
+                style:{
+                    main:{
+                        background: "blue",
+                        color: "white"
+                    }
+                },
+                settings:{
+                    duration: 4000
+                }
+    }
+
+return iqwerty.toast.Toast(message, options)
+
+
+};
+
 
 
        
@@ -93,6 +114,7 @@
             <p class="foot-logo"> copyright &copy; 2019!!!</p>
         </div>
     </footer>
+    <script src="./notification/toast.js"></script>
     <script src="./handlers/index.js"></script>
 </body>
 </html>

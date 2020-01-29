@@ -26,7 +26,7 @@ newform.addEventListener('submit',(e)=>{
                             document.getElementById('supb').disabled = false;
                                     console.log(rdata)
                                 if(rdata.valid == false){
-                                        window.alert(rdata.message);
+                                       toast(rdata.message);
                                         window.location.assign('./user_signin.html')
                                 }else if( rdata.token && rdata.valid == true){
                                     sessionStorage.setItem( 'token', rdata.token );
@@ -38,4 +38,26 @@ newform.addEventListener('submit',(e)=>{
                         })
 
 
-})
+});
+
+
+
+const toast =(message)=>{
+    const options={
+                style:{
+                    main:{
+                        background: "red",
+                        color: "white"
+                    }
+                },
+                settings:{
+                    duration: 4000
+                }
+    }
+
+return iqwerty.toast.Toast(message, options)
+
+
+};
+
+

@@ -154,8 +154,7 @@ logout.addEventListener('click',(e)=>{
             console.log(message.message);
             window.location.assign('./home.html')
                 sessionStorage.clear();
-    
-            window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
+                setTimeout(()=>{window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')},5000)
     
         })
 

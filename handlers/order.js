@@ -52,10 +52,11 @@ btnTwo.addEventListener('click',(e)=>{
                 return res.json();
             }).then((message)=>{
                 console.log(message.message);
-                window.location.assign('./home.html')
+            toast("YOU HAVE LOGGED OUT SUCCESSFULLY")
+                window.location.replace('./home.html')
                     sessionStorage.clear();
-        
-                window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
+                
+                
         
             })
 
@@ -114,6 +115,7 @@ btnTwo.addEventListener('click',(e)=>{
             }).then((res)=>{
                     console.log(res)
             });
+            toast("ORDER CREATED. SEE ORDERS ABOVE")
             formOne.receiver_name.value="";  
             formOne.destination_address.value="";
             formOne.pickup_address.value=""; 
@@ -139,6 +141,7 @@ btnTwo.addEventListener('click',(e)=>{
                         },
                         body:JSON.stringify({upDestnAddress, ordId})
         }).then((result)=>{
+            toast(`YOU UPDATED THE ADDRESS OF ORDER  ${ordId} TO ${upDestnAddress}`)
             console.log(result)
 
         const idCount = document.querySelectorAll('.table-data p.id a.id-ach');
@@ -240,6 +243,7 @@ btnTwo.addEventListener('click',(e)=>{
                         Authorization: token
                         }
                             }).then((response)=>{
+                    toast(`YOU DELETED ORDER ${del}` );
             console.log(response)
         });
     e.target.parentNode.parentNode.removeChild(e.target.parentNode);
@@ -297,3 +301,25 @@ createOrder (order_id,receiver_name,destination_address,pickup_address,receiver_
     }
                 
         });
+
+
+
+
+const toast =(message)=>{
+    const options={
+                style:{
+                    main:{
+                        background: "green",
+                        color: "white"
+                    }
+                },
+                settings:{
+                    duration: 4000
+                }
+    }
+
+return iqwerty.toast.Toast(message, options)
+
+
+};
+

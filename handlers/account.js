@@ -51,11 +51,11 @@ change.addEventListener('click',(e)=>{
                 console.log(token)
                 input.value="";
              input.classList.remove('show');  
-             window.alert(` You Just Updated \n Your ${input.id}`)    
+             toast(` You Just Updated \n Your ${input.id}`)    
             })
 
         }else if(change.classList.contains(input.id) && input.value ==""){
-            window.alert('NOT A VALID CHANGE \n INPUT FIELD IS EMPTY')
+            toast('NOT A VALID CHANGE \n INPUT FIELD IS EMPTY')
         }
     })
     })
@@ -107,8 +107,8 @@ logout.addEventListener('click',(e)=>{
         console.log(message.message);
         window.location.assign('./home.html')
             sessionStorage.clear();
-
-        window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')
+        
+        
 
     })
 
@@ -117,4 +117,27 @@ logout.addEventListener('click',(e)=>{
     
 
 })
+
+
+
+
+
+
+const toast =(message)=>{
+    const options={
+                style:{
+                    main:{
+                        background: "blue",
+                        color: "white"
+                    }
+                },
+                settings:{
+                    duration: 4000
+                }
+    }
+
+return iqwerty.toast.Toast(message, options)
+
+
+}
 

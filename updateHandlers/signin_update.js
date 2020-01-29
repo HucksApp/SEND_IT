@@ -26,7 +26,7 @@ fetch( 'https://s-i-api.herokuapp.com/api/v1/old_user' ,{
                 console.log(data.token);
                 console.log(data)
                 if (data.valid == false){
-                    window.alert(data.message);
+                    toast(data.message)
                 }else if(data.valid == true){
 
                     sessionStorage.setItem( 'token', data.token );
@@ -59,7 +59,7 @@ fetch('https://s-i-api.herokuapp.com/api/v1/admin',{
 }).then((data)=>{
     document.getElementById('asb').disabled=false;
             if (data.valid == false){
-                window.alert(data.message)
+                toast(data.message)
             }   else if (data.valid == true){
                 sessionStorage.setItem('adminToken', data.token);
                 console.log(data);
@@ -71,4 +71,23 @@ fetch('https://s-i-api.herokuapp.com/api/v1/admin',{
 })
 
 
+
+
+const toast =(message)=>{
+    const options={
+                style:{
+                    main:{
+                        background: "red",
+                        color: "white"
+                    }
+                },
+                settings:{
+                    duration: 4000
+                }
+    }
+
+return iqwerty.toast.Toast(message, options)
+
+
+}
 
