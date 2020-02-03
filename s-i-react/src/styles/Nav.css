@@ -1,0 +1,35 @@
+
+.nav_link{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: beige;
+    border: solid thin yellow;
+  }
+  .nav_link h1{
+    flex-grow: 2;
+  }
+  .nav_link ul{
+    flex-grow: 1;
+  }
+  
+  ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover{
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: #00f;
+  }
+
+
+a.active{
+ color: #f00;   
+}
