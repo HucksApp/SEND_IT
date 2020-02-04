@@ -31,13 +31,13 @@ class App extends Component {
       <Switch>
       <Route exact path="/" component={Redirect}/>
       <Route exact path="/home" component={Home}/>
-      <Route  path="/login" component={Login}/>
-      <Route  path="/signup" component={Signup}/>
-      <Route  path="/adminlogin" component={Adminlog}/>
-      <Route  path="/admin_comp" component={AdminComp}/>
-      <Route path="/account" component={Account}/>
-      <Route path="/orders" component={Orders}/>
-      <Route path="/map/:id" component={Map}/>
+      <Route exact  path="/login" component={Login}/>
+      <Route exact path="/signup" component={Signup}/>
+      <Route exact path="/adminlogin" component={Adminlog}/>
+      <Route exact path="/admin_comp" component={AdminComp}/>
+      <Route exact path="/account" component={Account}/>
+      <Route exact path="/orders" component={Orders}/>
+      <Route exact path="/map/:id" component={Map}/>
 
       </Switch>
       <Footer/>
