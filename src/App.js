@@ -13,6 +13,7 @@ import Account from './components/Account';
 import Orders from './components/Orders';
 import Map from './components/Map';
 import AdminComp from './components/AdminComp';
+import Redirect from './components/Redirect';
 
 
 
@@ -28,6 +29,7 @@ class App extends Component {
     <div className="App">
       <Nav/> 
       <Switch>
+      <Route exact path="/" component={Redirect}/>
       <Route exact path="/home" component={Home}/>
       <Route  path="/login" component={Login}/>
       <Route  path="/signup" component={Signup}/>
