@@ -1,0 +1,135 @@
+
+
+
+
+
+.all_orders_title{
+    margin-top: 10px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cornflowerblue;
+}
+
+.list_titl,.list_valu{
+    color: darkgoldenrod;
+}
+
+.top{
+    display:flex;
+    justify-content: space-around;
+}
+
+
+
+.top p:nth-child(even){
+    background-color: darkgoldenrod;
+}
+
+.top p:nth-child(odd){
+    background-color: cornflowerblue;
+}
+
+
+.order_wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.list_top > P:nth-child(even){
+    border-left:solid  darkgoldenrod;
+    padding-left: 10px;
+    margin: 0px;
+}
+
+.list_top > P:nth-child(odd){
+    border-left:solid   cornflowerblue;
+    padding-left: 10px;
+}
+
+.list_top{
+    display: flex;
+    margin: 10px 10px;
+    flex-flow: column;
+    align-items: flex-start;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+
+
+.admin_edit{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+
+.curent_location_form, .status_form{
+    background-color: deepskyblue;
+    border: solid thin cornflowerblue ;
+    width: 60%;
+    height: 0px;
+    padding-left: 5px;
+    transform: translateX(-140%);
+    padding-top: 30px;
+    overflow: hidden;
+    transition: all 0.6s;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 10px;
+}
+
+.curent_location_form.open_location, .status_form.open_status{
+    height: 50vh;
+    transform: translateX(0%);
+}
+
+
+.curent_location_form > *, .status_form > *{
+    margin: 5px;
+}
+
+.curent_location_form > input, .status_form input{
+    margin-left: 50px;
+    background-color: inherit;
+    height: 60px;
+}
+
+
+.status_form select{
+    margin: 10px auto;
+}
+
+.ord_lists_field7,.ord_lists_field8{
+    color: #f00;
+}
+
+
+.admin_submit{
+    margin: 20px auto;
+    font-weight: bold;
+    background-color: darkgoldenrod;
+
+}
+
+
+.tog_button{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tog_button button{
+    height: 40px;
+    font-weight: bold;
+    background-color: cornflowerblue ;
+    color:#fff;
+    box-shadow: 2px 2px 2px 2px darkgoldenrod;
+    border-radius: 5px;
+
+}

@@ -1,0 +1,73 @@
+.headings, .field{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.headings > p{
+    border: solid thin tomato;
+}
+
+.head, .order_id{
+color: #00f;
+}
+
+.field{
+    color:yellowgreen
+}
+
+.orders button{
+font-weight: bolder;
+color: #fff;
+background-color: #f00;
+margin: 30px;
+height: 5vh;
+}
+
+
+.delete{
+    color: #f00
+}
+
+.delete:hover, .order_id:hover{
+    cursor: pointer;
+    transform: scale(0.7);
+}
+
+
+@media screen and (max-width: 465px){
+    .headings{
+        flex-direction: column;
+    }
+    .headings > p{
+        margin:0px;
+        background-color: darkkhaki;
+        border:hidden;
+    }
+
+
+
+    .contain{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .field{
+        flex-direction: column;
+        min-width: auto;
+    }
+    
+    
+}
+.order_sumary{
+width: 40%;
+color: #fff
+}
+
+.ord_sum_deliv, .ord_sum_intran{
+    background-color: #BDB76B;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
