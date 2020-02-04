@@ -14,6 +14,7 @@ import Orders from './components/Orders';
 import Map from './components/Map';
 import AdminComp from './components/AdminComp';
 import Redirect from './components/Redirect';
+import NotFound from './components/NotFound';
 
 
 
@@ -38,6 +39,7 @@ class App extends Component {
       <Route exact path="/account" component={Account}/>
       <Route exact path="/orders" component={Orders}/>
       <Route exact path="/map/:id" component={Map}/>
+      <Route exact path="" component={NotFound}/>
 
       </Switch>
       <Footer/>
