@@ -1,6 +1,8 @@
 {
   "name": "s-i-react",
   "version": "0.1.0",
+  "node":"13.6.0",
+  "npm":"6.13.6",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
