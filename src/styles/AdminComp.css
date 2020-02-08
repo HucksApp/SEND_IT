@@ -133,3 +133,16 @@
     border-radius: 5px;
 
 }
+
+
+
+
+@media screen and (max-width: 465px){
+    .top{
+        flex-direction: column;
+    }
+    .top > p{
+        margin:0px;
+        border:hidden;
+    }
+    }
