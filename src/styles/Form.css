@@ -123,5 +123,14 @@ button:disabled{
 }
 
 
+@media screen and (max-width: 465px){
 
+    form input{
+        width: 200px;
+        margin-left: 10px;
+        border: hidden;
+    }
+
+
+    }
 
