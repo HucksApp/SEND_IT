@@ -47,7 +47,7 @@ height: 5vh;
 
 
 
-    .contain{
+    .contain, .contain span{
         display: flex;
         flex-wrap: wrap;
     }
