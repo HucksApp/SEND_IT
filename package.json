@@ -2,10 +2,10 @@
   "name": "s-i-react",
   "version": "0.1.0",
   "private": true,
-  "engines":{
-    "node":"13.6.0",
-    "npm":"6.13.6"
-    },
+  "engines": {
+    "node": "13.6.0",
+    "npm": "6.13.6"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -17,6 +17,7 @@
     "react-geocode": "^0.2.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
+    "react-transition-group": "^4.3.0",
     "toastr": "^2.1.4"
   },
   "scripts": {

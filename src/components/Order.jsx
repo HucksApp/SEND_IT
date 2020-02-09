@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { CSSTransitionGroup } from 'react-transition-group'
+
 
 
 
@@ -86,7 +88,15 @@ const chk = window.confirm('ARE YOU SURE YOU WANT TO DELETE ORDER '+del)
         <div>
             {title}
             <div className="contain">
+            < CSSTransitionGroup
+        transitionName="anni"
+        transitionEnterTimeout={600}
+        transitionLeaveTimeout={500}
+       
+            >
            {orders} 
+           
+           </CSSTransitionGroup>
            </div>
         </div>
     );

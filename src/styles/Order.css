@@ -71,3 +71,23 @@ color: #fff
     width: 100%;
 }
 
+
+.anni-enter{
+    transform: scale(0.3, 0.3)
+  }
+  
+  .anni-enter.example-enter-active {
+    transition: all 1s ease-in-out;
+    transform: scale(1, 1)
+  }
+  
+  .anni-leave {
+    transform: translateX(-100%);    
+   
+  }
+  
+  .anni-leave.example-leave-active {
+    opacity: 0.01;
+   transition: all 0.7s ease-in-out;
+  }
+  
