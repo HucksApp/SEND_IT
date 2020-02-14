@@ -110,9 +110,8 @@ newState.user = data[0];
 
 for (let i in  data[0].user_password){
     passHide = passHide + " * ";
-    console.log(i)
 };
-
+newState.passHide= passHide;
 
 this.setState({
         data: newState
