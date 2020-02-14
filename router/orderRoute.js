@@ -127,6 +127,7 @@ router.post('/new_order',auth,(req,res)=>{
                 destinationAddress,
                 pickupAddress, 
                 receiverPhoneNumber,
+                description
        } = req.body;
 
         const { email }= req.session._ctx.decoded;
