@@ -17,7 +17,7 @@ return(
         </div>
         <div className="copywright">
             <h4 className="n-mark" style={{color: '#00f'}}>SEND <span style={{color: '#f00'}}>IT</span></h4>
-            <p>copywright&copy; 2019!!!</p>
+            <p>copywright&copy; 2020!!!</p>
         </div>
        
     </div>

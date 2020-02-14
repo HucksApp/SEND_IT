@@ -105,7 +105,7 @@ if(!token){
     let passHide = "";
     
     
-const newState = {...this.state.data};
+let newState = {...this.state.data};
 newState.user = data[0];
 
 for (let i in  data[0].user_password){
@@ -113,8 +113,7 @@ for (let i in  data[0].user_password){
     console.log(i)
 };
 
-let newState = {...this.state.data};
-newState.user = data[0];
+
 this.setState({
         data: newState
 })
