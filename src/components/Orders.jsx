@@ -223,12 +223,24 @@ handleClickEdit=()=>{
 
 
   render() {
+
+    let  orderChk ; 
+    if(this.state.data.orderList.length !== 0 ){
+          orderChk=(
+              <div>
+              <button onClick={this.handleClickEdit} >EDIT DESTINATION</button>
+              <button  onClick={this.handleClickCreate}>CREATE ORDER</button>
+              </div>
+          )}else{
+              
+          };
+
+
     return (
       <div className="orders">
             <h3 className="orders-title">LIST OF ORDERS AND DELIVERY DETAILS</h3>
             <Order orderList={this.state.data.orderList}  handleDeleteUpdate={this.handleDeleteUpdate} />
-            <button onClick={this.handleClickEdit} >EDIT DESTINATION</button>
-            <button  onClick={this.handleClickCreate}>CREATE ORDER</button>
+            {orderChk}
             <EditDestination  show={this.state.data.showEdit} handleDestinationUpdate={this.handleDestinationUpdate}/>
             <CreateOrder show={this.state.data.showCreate} updateOrder={this.handleUpdateOrder} />
         

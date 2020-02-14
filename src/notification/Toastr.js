@@ -4,7 +4,7 @@ import 'toastr/build/toastr.min.css';
 
 
 toastr.options = {
-    positionClass : 'toast-top-full-width',
+    positionClass : 'toast-top-right',
     hideDuration: 300,
     timeOut: 10000
   };

@@ -1,11 +1,13 @@
 .headings, .field{
     display: flex;
+    margin: 10px 10px;
     justify-content: space-around;
 
 }
 
-.headings > p{
-    border: solid thin tomato;
+.headings > p {
+margin-left: 3px;
+margin-right: 3px;
 }
 
 .head, .order_id{
@@ -13,8 +15,122 @@ color: #00f;
 }
 
 .field{
-    color:yellowgreen
+    flex-direction: column;
+    min-width: auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    color:yellowgreen;
+    background-color: whitesmoke; 
+    border-radius: 15px;
+    margin-right: 10px;
+
+
 }
+.field > P {
+    padding-left: 5px;
+}
+
+
+
+.delete{
+    align-self: center; 
+}
+
+p.order_id{
+   border-left:solid #7FFFD4; 
+}
+.order_idh{
+    background-color: #7FFFD4; 
+ }
+ 
+.receiver_name{
+    border-left: solid #FFE4C4;
+}
+.receiver_nameh{
+    background-color: #FFE4C4;
+}
+
+.receiver_phone_no{
+    border-left: solid #FF7F50;
+}
+
+.receiver_phone_noh{
+    background-color:  #FF7F50;
+}
+
+.pickup_address{
+    border-left: solid #8B008B;
+}
+
+.pickup_addressh{
+    background-color:  #8B008B;
+}
+
+
+.destination_address{
+    border-left: solid #FF8C00;
+}
+
+.destination_addressh{
+    background-color:  #FF8C00;
+}
+
+
+.order_date{
+    border-left: solid #FF1493;
+}
+
+.order_dateh{
+    background-color:  #FF1493;
+}
+
+.description{
+    border-left: solid #808080;
+}
+
+.descriptionh{
+    background-color:  #808080;
+}
+
+.description{
+    border-left: solid #87CEFA;
+}
+
+.descriptionh{
+    background-color:  #87CEFA;
+}
+
+
+.status{
+    border-left: solid #DDA0DD;
+}
+
+.statush{
+    background-color:  #DDA0DD;
+}
+
+
+.c_location{
+    border-left: solid #BC8F8F
+}
+
+.c_locationh{
+    background-color:  #BC8F8F;
+}
+
+
+
+
+
+
+
+
+.contain, .contain span{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+}
+
 
 .orders button{
 font-weight: bolder;
@@ -23,6 +139,7 @@ background-color: #f00;
 margin: 30px;
 height: 5vh;
 }
+
 
 
 .delete{
@@ -35,26 +152,13 @@ height: 5vh;
 }
 
 
-@media screen and (max-width: 465px){
+@media screen and (max-width: 565px){
     .headings{
         flex-direction: column;
     }
     .headings > p{
         margin:0px;
-        background-color: darkkhaki;
         border:hidden;
-    }
-
-
-
-    .contain, .contain span{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .field{
-        flex-direction: column;
-        min-width: auto;
     }
     
     
@@ -71,23 +175,23 @@ color: #fff
     width: 100%;
 }
 
-
-.anni-enter{
-    transform: scale(0.3, 0.3)
+.example-enter{
+    transform: scale(1.2, 1.2)
   }
   
-  .anni-enter.example-enter-active {
+  .example-enter.example-enter-active {
     transition: all 1s ease-in-out;
     transform: scale(1, 1)
   }
   
-  .anni-leave {
-    transform: translateX(-100%);    
+  .example-leave {
+    transform: scale(1.2, 1.2) ;
+    transition: all 0.7s ease-in-out;  
    
   }
   
-  .anni-leave.example-leave-active {
+  .example-leave.example-leave-active {
+ transform: scale(0.8., 1.8) ;
     opacity: 0.01;
-   transition: all 0.7s ease-in-out;
   }
   

@@ -99,7 +99,7 @@ console.log(this.state)
             <div>
             <p>Have An Account? Go To Login</p>
                 <label htmlFor="username">USERNAME: </label>
-                <input id="username" type="text" placeholder="ENTER USER NAME" onChange={this.updateState}  minLength="6" maxLength="20" required/>
+                <input id="username" type="text" placeholder="ENTER USER NAME" onChange={this.updateState}  minLength="3" maxLength="20" required/>
             </div>
             <div>
             <label htmlFor="phoneno" >PHONE NO: </label>

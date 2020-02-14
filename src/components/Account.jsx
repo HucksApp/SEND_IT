@@ -48,7 +48,7 @@ case 'house-address':
     field= 'address'
     break;
 default:
-     break;
+     return;
 
 }
 nwdata.user[field] = val;
@@ -100,8 +100,19 @@ if(!token){
         }
 }).then(res=>{return res.json()
 }).then(data=>{
-    console.log(data)
-    console.log(this.state)
+
+
+    let passHide = "";
+    
+    
+const newState = {...this.state.data};
+newState.user = data[0];
+
+for (let i in  data[0].user_password){
+    passHide = passHide + " * ";
+    console.log(i)
+};
+
 const newState = {...this.state.data};
 newState.user = data[0];
 this.setState({
@@ -116,6 +127,26 @@ this.setState({
 
 
 handleEdit=(e)=>{
+
+    if(e.target.classList.contains('password')){
+        const auth = window.prompt('PLEASE ENTER OLD PASSWORD');
+        console.log(auth)
+if(auth !== this.state.data.user.user_password && auth !== null){
+   toastr.warning('IN CORRECT PASSWORD')
+   return
+}else if(auth !== this.state.data.user.user_password && auth === null){
+    return
+}
+ 
+else{
+    toastr.info('ENTER THE NEW PASSWORD');
+    console.log('good 1')
+}
+    }else{
+    
+    };
+
+
     console.log(e.target.type)
 const newState= {...this.state};
  const typ = e.target.classList.value.split(' ')[1];
@@ -144,7 +175,6 @@ switch(this.state.data.show){
             state: newState
         });   
 };
-console.log(typ)
 
     
 }
@@ -170,7 +200,7 @@ console.log(typ)
                 </div>
                 <div className="compartment">
                     <h4 className="title">PASSWORD</h4>
-                    <p className="f-value">{this.state.data.user.user_password}<button title="EDIT PASSWORD" className="edit password" onClick={this.handleEdit}>I</button></p>
+                    <p className="f-value">{ this.state.data.passHide }<button title="EDIT PASSWORD" className="edit password" onClick={this.handleEdit}>I</button></p>
                 </div>
                 <div className="compartment">
                     <h4 className="title">EMAIL</h4>
