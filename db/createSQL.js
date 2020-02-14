@@ -36,6 +36,7 @@ export default function createSQL(db){
                 order_date TIMESTAMP DEFAULT now(),
                 c_location VARCHAR(80) DEFAULT 'Storage',
                 status VARCHAR(20) DEFAULT 'In transit',
+                description VARCHAR(70) DEFAULT 'order description',
                 PRIMARY KEY(user_email, order_id),
                 FOREIGN KEY(user_email) REFERENCES users(email) ON DELETE CASCADE
             );
