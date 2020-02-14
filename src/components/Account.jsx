@@ -113,7 +113,7 @@ for (let i in  data[0].user_password){
     console.log(i)
 };
 
-const newState = {...this.state.data};
+let newState = {...this.state.data};
 newState.user = data[0];
 this.setState({
         data: newState
