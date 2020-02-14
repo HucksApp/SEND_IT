@@ -149,8 +149,8 @@ else if(result.rows[0].max == null){
         console.log('ERR CREATING ORDER ID')
     };
 
-db.query('INSERT INTO orders(user_email, order_id, receiver_name,destination_address,pickup_address,receiver_phone_no) VALUES($1,$2,$3,$4,$5,$6)',
-            [id,order_id_Nt,receiverName,destinationAddress,pickupAddress,receiverPhoneNumber],
+db.query('INSERT INTO orders(user_email, order_id, receiver_name,destination_address,pickup_address,receiver_phone_no,description) VALUES($1,$2,$3,$4,$5,$6,$7)',
+            [id,order_id_Nt,receiverName,destinationAddress,pickupAddress,receiverPhoneNumber,description],
             (err, results)=>{
                     if (err){
                         console.log(err);
