@@ -14,6 +14,14 @@ margin-right: 3px;
 color: #00f;
 }
 
+h4.empty_list{
+    width: 100%;
+    text-align: center;
+    
+}
+
+
+
 .field{
     flex-direction: column;
     min-width: auto;
@@ -127,6 +135,7 @@ p.order_id{
 
 .contain, .contain span{
     display: flex;
+    width: 100%;
     justify-content: space-between;
     flex-wrap: wrap; 
 }
