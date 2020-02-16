@@ -68,7 +68,7 @@ return (
           </div>
           <div>
           <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE NUMBER:</label>
-          <input id="receiverPhoneNumber" type="number" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER THE RECEIVER PHONE NUMBER" required />
+          <input id="receiverPhoneNumber" type="number" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER THE RECEIVER PHONE NO IN FORMAT 234 12345678" pattern="[2-4]{3}[0-9]{10}" required />
           </div>
           <button  type="submit" title="SUBMIT">CREATE</button>
       </form>
