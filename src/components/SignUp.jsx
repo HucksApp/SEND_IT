@@ -59,7 +59,6 @@ formAction=(e)=>{
     e.preventDefault();
 
     submitControl(true,this)
-console.log(this.state)
     fetch('https://s-i-api.herokuapp.com/api/v1/new_user',{
         method:"POST",
         headers:{

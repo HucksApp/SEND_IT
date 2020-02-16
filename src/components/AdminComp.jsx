@@ -34,7 +34,6 @@ console.log(data)
             };
         });
 
-        console.log(newList)
 
        dataCopy.orderList = newList;
 
@@ -53,13 +52,11 @@ const adminToken = sessionStorage.getItem('adminToken');
         },
         body:JSON.stringify(data)
     }).then((response)=>{
-    console.log(response);
     toastr.success(`ORDER ${data.toUpdateId} BY USER ${data.userUpdateId}, LOCATION WAS UPDATED TO ${data.toUpdateLotn}`)
     })
 }
 
 handleStatus = (data)=>{
-    console.log(data)
 
     const dataCopy = {...this.state.data};
     const newList = dataCopy.orderList.map(order=>{
@@ -71,7 +68,6 @@ handleStatus = (data)=>{
         };
     });
 
-    console.log(newList)
 
    dataCopy.orderList = newList;
 
@@ -88,7 +84,6 @@ handleStatus = (data)=>{
                 },
                 body:JSON.stringify(data)
     }).then((response)=>{
-        console.log(response);
         toastr.success(`ORDER ${data.toUpdateId} BY USER ${data.userUpdateId}, STATUS WAS UPDATED TO ${data.toUpdateStatus}`)
     });
 
@@ -121,7 +116,7 @@ componentDidMount(){
                 this.setState({
                     data: datacopy
                 })
-            console.log(this.state)
+    
         })
         .catch(err=>{toastr.error('ERROR FETCHING THE ORDERS LISTS')})
 };

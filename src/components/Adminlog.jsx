@@ -32,7 +32,6 @@ handleChange=(e)=>{
     e.preventDefault();
     submitControl(true, this);
 
-    console.log(this.state)
       fetch('https://s-i-api.herokuapp.com/api/v1/admin',{
               method: "POST",
               headers:{
@@ -43,7 +42,6 @@ handleChange=(e)=>{
         return res.json()
     }).then(data=>{
       submitControl(false, this);
-      console.log(data)
 
       if (data.valid === false){
         toastr.error(data.message)
@@ -53,7 +51,6 @@ handleChange=(e)=>{
         sessionStorage.setItem('adminToken', data.token);
         this.props.history.push('/admin_comp');
         toastr.success('YOU ARE LOGGED IN AS THE SUPER USER "ADMIN"')
-        console.log(data);
 
     }   
 

@@ -6,7 +6,6 @@ const AdminOrdersList = (props) => {
 let sn = 0
     const orders =props.orders_list.map((order)=>{
                 sn++;
-                console.log('this is sn '+ sn)
 
         return (
             <div className="list_top" key={sn}> 

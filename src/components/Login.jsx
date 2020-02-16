@@ -24,7 +24,6 @@ class Login extends Component {
             if(chk === false){
                 return
             }else{
-                console.log(this.props)
                 this.props.history.push('/adminlogin')
             }
 

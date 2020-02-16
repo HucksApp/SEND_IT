@@ -25,7 +25,6 @@ componentDidMount(){
         .then(list=>{
 
             list.forEach(order=>{
-                console.log(order.status)
                 if(order.status === 'Delivered' ){
                     const copyData = {...this.state.data}
                         const newCount = copyData.deliveredCount + 1;

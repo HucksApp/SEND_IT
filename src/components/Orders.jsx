@@ -69,7 +69,6 @@ if(!token){
                 data: newData
             });
 
-            console.log(this.state)
 
         }
        
@@ -97,7 +96,6 @@ const token = sessionStorage.getItem('token');
         Authorization: token
         }
             }).then(res=>{
-                console.log(res)
                 toastr.info('YOU HAVE DELETED ORDER '+ del)
             }).catch(err=>toastr.error('THERE WAS AN ERROR DELETING ORDER '+ del))
 
@@ -139,7 +137,6 @@ const copyData = {...this.state.data};
 }
 
 handleShowModal=()=>{
-    console.log('heeeeeeeee')
     const copyState ={ ...this.state};
     switch(this.state.data.showModal){
         case false:
@@ -175,7 +172,6 @@ handleUpdateOrder=(data)=>{
 
 
     const dataCopy = {...this.state.data};
-    console.log(data.date);
     data.date= dateString;
     const newOrder = {
                 order_id: id,
@@ -194,7 +190,6 @@ handleUpdateOrder=(data)=>{
                     newList.push(newOrder)
                 dataCopy.orderList = newList;
 
-    console.log(dataCopy)
     this.setState({
             data: dataCopy
     })
@@ -210,7 +205,6 @@ handleUpdateOrder=(data)=>{
             body:JSON.stringify(data)
         })
             .then(res=>{
-                console.log(res)
                 toastr.success("NEW ORDER ADDED TO ORDER LIST")
             }).catch(err=>toastr.error('THERE WAS AN ERROR CREATING A NEW ORDER '))
 

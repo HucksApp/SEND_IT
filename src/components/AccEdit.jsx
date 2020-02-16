@@ -20,7 +20,6 @@ handleClick=()=>{
 
   }else{
 
-  console.log(this.state.data)
 this.props.updateState(this.state.data);
 
 const newData = {...this.state.data};
@@ -32,7 +31,6 @@ this.setState({
     data: newData
 })
 this.props.handleCloseModal()
-console.log(this.state)
 
   }
 
@@ -52,7 +50,6 @@ const data= {
 this.setState({
           data
 });
-console.log(this.state)
 }
 
 

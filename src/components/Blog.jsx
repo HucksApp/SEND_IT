@@ -47,7 +47,6 @@ class Blog extends Component {
 
     setBlog=(blog)=>{
        let radNum =Math.floor(Math.random() * 9 );
-       console.log(this.state.blogs[radNum])
         return blog = this.state.blogs[radNum]; 
          
     }
@@ -58,7 +57,6 @@ class Blog extends Component {
             let blog="";
         const nblog =  this.setBlog(blog)
         
-        console.log(blog);
 
     return (
       <div className="blog">

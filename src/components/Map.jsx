@@ -44,8 +44,7 @@ if(!token){
 }else if (token){
 
         const queryId=this.props.match.params.id;
-        console.log(this.props, queryId)
-
+        
     fetch('https://s-i-api.herokuapp.com/api/v1/map?ordCk='+queryId,{
                 method:"GET",
                 headers:{ 
@@ -65,11 +64,8 @@ if(!token){
         field: 'C_location',
         val: c_location
 };
-    console.log(pickupData, cLocationData)
         geocode(pickupData, this);
         geocode(cLocationData, this);
-    console.log(this.state)
-
 
 
 })

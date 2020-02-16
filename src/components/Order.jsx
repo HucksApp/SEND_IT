@@ -13,7 +13,6 @@ import '../styles/Order.css'
 const Order = (props) => {
 let orders;
 let title;
-console.log(props.orderList)
 
 const handleDeleteOrder=(e)=>{
 

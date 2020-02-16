@@ -22,7 +22,6 @@ newData.order[e.target.id] = e.target.value;
 this.setState({
     data: newData
 })
-console.log(this.state)
 
 }
 

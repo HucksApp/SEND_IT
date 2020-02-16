@@ -41,7 +41,6 @@ this.props.handleShowModal();
 }
 
   render() {
-    console.log(this.props)
     return (
       <div  className={'edit-destination '+ this.props.show}>
           <form className="order-edit"  onSubmit={this.handleSubmit} >

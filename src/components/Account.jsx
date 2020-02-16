@@ -71,7 +71,6 @@ handleCloseModal(){
 
 
 updateState=(data)=>{
-console.log(data)
 const nwdata = {...this.state.data};
 const { val, keyToValue}= data;
 let keyToValueFormat;
@@ -103,8 +102,6 @@ const payload = {
             newVal: val,
             keyToValue: keyToValueFormat
 };
-
-console.log(payload)
 
 const token =sessionStorage.getItem('token');
 this.handleCloseModal();
@@ -149,13 +146,13 @@ if(!token){
         
 
     
-    console.log(this.state.data.user.user_password)
+   
 const newState = {...this.state.data};
 newState.user = data[0];
 
 for (let i in  data[0].user_password){
     passHide = passHide + " * ";
-    console.log(i)
+    
 };
 newState.passHide= passHide;
 this.setState({
@@ -173,7 +170,6 @@ handleEdit=(e)=>{
 
         if(e.target.classList.contains('password')){
             const auth = window.prompt('PLEASE ENTER OLD PASSWORD');
-            console.log(auth)
     if(auth !== this.state.data.user.user_password && auth !== null){
        toastr.warning('IN CORRECT PASSWORD')
        return
@@ -183,13 +179,11 @@ handleEdit=(e)=>{
      
     else{
         toastr.info('ENTER THE NEW PASSWORD');
-        console.log('good 1')
     }
         }else{
         
         }
 
-    console.log(e.target.type)
 const newState= {...this.state};
  const typ = e.target.classList.value.split(' ')[1];
 let typCopy ="";
@@ -256,7 +250,6 @@ switch(this.state.data.showModal){
     default:
         return;
 };
-console.log(typ)
 
     
 }

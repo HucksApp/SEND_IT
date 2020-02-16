@@ -23,7 +23,7 @@ const dataCopy = { ...this.state.data }
     this.setState({
       data: dataCopy
     })
-    console.log(this.state)
+
 }
 
 
@@ -105,7 +105,6 @@ handleSubmitStatus = (e)=>{
 
 
 handleClickA=(e)=>{
-  console.log(this.state.data.class,  e.target.classList.value)
     if(this.state.data.class === "closed" && e.target.classList.value === 'status_tog'){
       const dataCopy = {...this.state.data};
       dataCopy.class = "open_status";
