@@ -31,7 +31,7 @@ newData.keyToValue="";
 this.setState({
     data: newData
 })
-
+this.props.handleCloseModal()
 console.log(this.state)
 
   }
@@ -76,7 +76,7 @@ console.log(this.state)
 
     return (
       <div >
-    <h3 className="title">Replace {this.props.typ}</h3>
+    <h3 className="title">Replace {this.props.typdisplay}</h3>
       <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" onChange={this.handleChange}/>
       <button type="submit" className="editsub" onClick={this.handleClick}>UPDATE</button>
       </div>

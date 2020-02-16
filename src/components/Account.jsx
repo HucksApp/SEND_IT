@@ -36,6 +36,7 @@ constructor (props) {
             showModal: false,
             show:"not-active",
             typ: "",
+            typDisplay: "",
             passHide:"",
         }
 };
@@ -73,26 +74,26 @@ updateState=(data)=>{
 console.log(data)
 const nwdata = {...this.state.data};
 const { val, keyToValue}= data;
-let field;
+let keyToValueFormat;
 
 switch(keyToValue){
 
-case 'user-name':
-    field='username';
+case 'username':
+    keyToValueFormat='user-name';
     break;
-case 'phone-number':
-    field='phone_number';
+case 'phone_number':
+    keyToValueFormat='phone-number';
     break;
 case 'password':
-    field='user_password'; 
+    keyToValueFormat='password'; 
     break;
-case 'house-address':
-    field= 'address'
+case 'address':
+    keyToValueFormat= 'house-address'
     break;
 default:
     return;
 }
-nwdata.user[field] = val;
+nwdata.user[keyToValue] = val;
 
 this.setState({
             data: nwdata
@@ -100,8 +101,10 @@ this.setState({
 
 const payload = {
             newVal: val,
-            keyToValue
+            keyToValue: keyToValueFormat
 };
+
+console.log(payload)
 
 const token =sessionStorage.getItem('token');
 this.handleCloseModal();
@@ -190,27 +193,48 @@ handleEdit=(e)=>{
 const newState= {...this.state};
  const typ = e.target.classList.value.split(' ')[1];
 let typCopy ="";
+let typdisplay="";
 
 
 switch( typ ){
 
     case 'user-name':
-        typCopy='User Name';
+        typdisplay='User Name';
         break;
     case 'phone-number':
-        typCopy='Phone Number';
+       typdisplay='Phone Number';
         break;
     case 'password':
-        typCopy='Password'; 
+        typdisplay='Password'; 
         break;
     case 'house-address':
-        typCopy= 'Address'
+        typdisplay= 'Address'
         break;
     default:
         return;
     }
 
 
+    
+    switch( typ ){
+
+        case 'user-name':
+            typCopy='username';
+            break;
+        case 'phone-number':
+            typCopy='phone_number';
+            break;
+        case 'password':
+            typCopy='password'; 
+            break;
+        case 'house-address':
+            typCopy= 'address'
+            break;
+        default:
+            return;
+        }
+
+ newState.data.typDisplay = typdisplay;
  newState.data.typ = typCopy;
 
 
@@ -277,7 +301,12 @@ console.log(typ)
         className="modal"
         overlayClassName="Overlay"
         >
-        <AccEdit    typ={this.state.data.typ}  updateState={this.updateState}   />
+        <AccEdit    typ={this.state.data.typ} 
+            typdisplay={this.state.data.typDisplay} 
+         updateState={this.updateState} 
+         handleCloseModal={this.handleCloseModal}
+         
+         />
         </Modal>
 
         <OrderSummary  orders={this.state.data} />
