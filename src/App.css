@@ -1,9 +1,13 @@
-.App {
+..App {
   text-align: center;
   font-size: larger;
   width: 100%;
 }
 
+.footer{
+  margin-top: 80px;
+  
+}
 
 .copywright{
 border-bottom: solid 15px beige;
@@ -12,4 +16,5 @@ margin-left: 120px;
 margin-right: 120px;
 
 }
+
 

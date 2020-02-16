@@ -34,7 +34,7 @@ e.preventDefault();
         data: dataCopy
     })
 
-
+this.props.handleShowModal();
   
 
 

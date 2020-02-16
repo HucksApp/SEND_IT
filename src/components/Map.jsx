@@ -62,7 +62,7 @@ if(!token){
                 val: pickup_address
     };
     const cLocationData = {
-        field: 'c_location',
+        field: 'C_location',
         val: c_location
 };
     console.log(pickupData, cLocationData)
@@ -114,7 +114,16 @@ handleInfoClose=()=>{
             initialCenter={{lat: this.state.data.init_conditions.lat,
             lng: this.state.data.init_conditions.lng}}
             zoom={this.state.data.init_conditions.zoom}>
-                <Marker onClick={this.handleMarkerClick} name={'PAKAGE WAREHOUSE'} />
+                <Marker onClick={this.handleMarkerClick} name={'PAKAGE WAREHOUSE'} 
+                position={{lat: this.state.data.init_conditions.lat, lng: this.state.data.init_conditions.lng}} />
+
+                <Marker onClick={this.handleMarkerClick} name={'PAKAGE PICKUP ADDRESS'} 
+                position={{lat: this.state.data.order.pickup_address.lat, lng: this.state.data.order.pickup_address.lng}} />
+
+
+                <Marker onClick={this.handleMarkerClick} name={'PAKAGE CURRENT LOCATION'} 
+                position={{lat: this.state.data.order.C_location.lat, lng: this.state.data.order.C_location.lng}} />
+
                 <InfoWindow marker={this.state.data.accessories.activeMarker}
                 visible={this.state.data.accessories.showingInfoWindow} onClose={this.handleInfoClose} >
                         <div>{this.state.data.accessories.selectedPlace.name}</div>
@@ -127,5 +136,5 @@ handleInfoClose=()=>{
 }
 
 export default GoogleApiWrapper({
-            apiKey: 'AIzaSyBv0sVayQdqOBhH48gWwnnJHMkMil3pCQg'
+            apiKey: 'AIzaSyDoduk96MV36i6RJFgvo80FqZTFBZj2k1M'
         })(orderMap)

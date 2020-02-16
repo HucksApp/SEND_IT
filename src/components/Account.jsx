@@ -1,5 +1,8 @@
 import React,{ Component } from 'react';
 import toastr from '../notification/Toastr'
+import Modal from 'react-modal';
+
+
 
 //STYLES
 import '../styles/Account.css'
@@ -11,7 +14,16 @@ import OrderSummary from './OrderSumary';
 
 class Account extends Component {
 
-state = {
+
+
+    // SET INITIAL STATE AND BIND EVENT
+
+constructor (props) {
+
+    super(props);
+
+
+   this.state = {
         data:{
             user:{
                 email: "",
@@ -21,10 +33,40 @@ state = {
                 address: "",
                 order_counts: ""
             },
+            showModal: false,
             show:"not-active",
-            typ:""
+            typ: "",
+            passHide:"",
         }
 };
+
+// BIND EVENTS
+
+this.updateState = this.updateState.bind(this);
+this.handleEdit= this.handleEdit.bind(this);
+this.handleOpenModal = this.handleOpenModal.bind(this);
+this.handleCloseModal = this.handleCloseModal.bind(this);
+
+}
+
+
+handleOpenModal(){
+    let newState = { ...this.state.data };
+    newState.showModal = true;
+    this.setState({
+        data: newState
+    });
+}
+
+handleCloseModal(){
+    let newState = { ...this.state.data };
+    newState.showModal = false;
+    this.setState({
+        data: newState
+    });
+}
+
+
 
 
 updateState=(data)=>{
@@ -42,14 +84,13 @@ case 'phone-number':
     field='phone_number';
     break;
 case 'password':
-    field='user_password';
+    field='user_password'; 
     break;
 case 'house-address':
     field= 'address'
     break;
 default:
-     return;
-
+    return;
 }
 nwdata.user[field] = val;
 
@@ -63,6 +104,7 @@ const payload = {
 };
 
 const token =sessionStorage.getItem('token');
+this.handleCloseModal();
 
 fetch('https://s-i-api.herokuapp.com/api/v1/update_profile',{
     method:"PUT",
@@ -73,7 +115,6 @@ fetch('https://s-i-api.herokuapp.com/api/v1/update_profile',{
     body: JSON.stringify(payload)
 }).then(res=>{
     toastr.success(`YOU JUST UPDATED YOUR ${keyToValue} `);
-    toastr.info('CLOSE THE EDIT TAB \n WITH THE EDIT BUTTON IN RED')
 }).catch(err=>toastr.error('THERE WAS AN ERROR UPDATING YOUR '+ keyToValue))
 
 
@@ -101,18 +142,19 @@ if(!token){
 }).then(res=>{return res.json()
 }).then(data=>{
 
+        let passHide = "";
+        
 
-    let passHide = "";
     
-    
-let newState = {...this.state.data};
+    console.log(this.state.data.user.user_password)
+const newState = {...this.state.data};
 newState.user = data[0];
 
 for (let i in  data[0].user_password){
     passHide = passHide + " * ";
+    console.log(i)
 };
 newState.passHide= passHide;
-
 this.setState({
         data: newState
 })
@@ -126,53 +168,71 @@ this.setState({
 
 handleEdit=(e)=>{
 
-    if(e.target.classList.contains('password')){
-        const auth = window.prompt('PLEASE ENTER OLD PASSWORD');
-        console.log(auth)
-if(auth !== this.state.data.user.user_password && auth !== null){
-   toastr.warning('IN CORRECT PASSWORD')
-   return
-}else if(auth !== this.state.data.user.user_password && auth === null){
-    return
-}
- 
-else{
-    toastr.info('ENTER THE NEW PASSWORD');
-    console.log('good 1')
-}
-    }else{
-    
-    };
-
+        if(e.target.classList.contains('password')){
+            const auth = window.prompt('PLEASE ENTER OLD PASSWORD');
+            console.log(auth)
+    if(auth !== this.state.data.user.user_password && auth !== null){
+       toastr.warning('IN CORRECT PASSWORD')
+       return
+    }else if(auth !== this.state.data.user.user_password && auth === null){
+        return
+    }
+     
+    else{
+        toastr.info('ENTER THE NEW PASSWORD');
+        console.log('good 1')
+    }
+        }else{
+        
+        }
 
     console.log(e.target.type)
 const newState= {...this.state};
  const typ = e.target.classList.value.split(' ')[1];
- newState.data.typ = typ;
+let typCopy ="";
 
-switch(this.state.data.show){
 
-    case 'not-active':
-        newState.data.show= "active";
-     e.target.setAttribute('style','background-color: red')
+switch( typ ){
+
+    case 'user-name':
+        typCopy='User Name';
+        break;
+    case 'phone-number':
+        typCopy='Phone Number';
+        break;
+    case 'password':
+        typCopy='Password'; 
+        break;
+    case 'house-address':
+        typCopy= 'Address'
+        break;
+    default:
+        return;
+    }
+
+
+ newState.data.typ = typCopy;
+
+
+switch(this.state.data.showModal){
+
+    case false:
+        newState.data.showModal = true;
 
         this.setState({
             state: newState
         });
     break;
-    case 'active':
-        newState.data.show= "not-active";
-        e.target.setAttribute('style','background-color: blue')
+    case true:
+        newState.data.showModal = false;
         this.setState({
             state: newState
         });
     break;
     default:
-        newState.data.show= "not-active";
-        this.setState({
-            state: newState
-        });   
+        return;
 };
+console.log(typ)
 
     
 }
@@ -180,6 +240,7 @@ switch(this.state.data.show){
 
 
     render(){
+        Modal.setAppElement('body');
     
     return (
       <div className="account">
@@ -198,7 +259,7 @@ switch(this.state.data.show){
                 </div>
                 <div className="compartment">
                     <h4 className="title">PASSWORD</h4>
-                    <p className="f-value">{ this.state.data.passHide }<button title="EDIT PASSWORD" className="edit password" onClick={this.handleEdit}>I</button></p>
+                    <p className="f-value">{this.state.data.passHide }<button title="EDIT PASSWORD" className="edit password" onClick={this.handleEdit}>I</button></p>
                 </div>
                 <div className="compartment">
                     <h4 className="title">EMAIL</h4>
@@ -209,7 +270,16 @@ switch(this.state.data.show){
                     <p className="f-value">{this.state.data.user.order_counts}</p>
                 </div>
         </div>
-        <AccEdit  show={this.state.data.show}  typ={this.state.data.typ}  updateState={this.updateState}/>
+        <Modal
+        isOpen={this.state.data.showModal}
+        contentLabel="example"
+        onRequestClose={this.handleCloseModal}
+        className="modal"
+        overlayClassName="Overlay"
+        >
+        <AccEdit    typ={this.state.data.typ}  updateState={this.updateState}   />
+        </Modal>
+
         <OrderSummary  orders={this.state.data} />
       </div>
     );

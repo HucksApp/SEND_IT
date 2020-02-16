@@ -85,7 +85,9 @@ console.log(this.state)
             default:
                 toastr.info('NOT A VALID INFO')
         };
-}).catch(err=>toastr.error('THERE WAS AN ERROR CREATING NEW USER '+ this.state.data.user.username))
+}).catch(err=>{toastr.error('THERE WAS AN ERROR CREATING NEW USER '+ this.state.data.user.username)
+                console.log(err)
+})
 
 
 } 
@@ -103,7 +105,7 @@ console.log(this.state)
             </div>
             <div>
             <label htmlFor="phoneno" >PHONE NO: </label>
-            <input id="phoneno" type="number" placeholder="ENTER PHONE NUMBER" onChange={this.updateState} minLength="8" maxLength="20" required/>
+            <input id="phoneno" type="tel" placeholder="2349078976545" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} minLength="8" maxLength="20" required/>
             </div>
             <div>
             <label htmlFor="house_address" >HOUSE ADDRESS:</label>

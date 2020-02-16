@@ -75,7 +75,7 @@ console.log(this.state)
     };
 
     return (
-      <div className="acc_edit" id={this.props.show}>
+      <div >
     <h3 className="title">Replace {this.props.typ}</h3>
       <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" onChange={this.handleChange}/>
       <button type="submit" className="editsub" onClick={this.handleClick}>UPDATE</button>

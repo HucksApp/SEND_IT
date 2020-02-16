@@ -77,7 +77,22 @@ p.order_id{
 
 .destination_address{
     border-left: solid #FF8C00;
+    background-color: #fff;
+    width: 80%;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    
+
+  
 }
+
+.destination_address:hover{
+    cursor: pointer;
+    background-color: #FF8C00;
+    color:#fff;
+  
+}
+
 
 .destination_addressh{
     background-color:  #FF8C00;
@@ -203,4 +218,5 @@ color: #fff
  transform: scale(0.8., 1.8) ;
     opacity: 0.01;
   }
+  
   

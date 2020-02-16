@@ -64,6 +64,7 @@ background-color: #000;
 display: flex;
 justify-content: center;
 margin: 20px;
+border:solid red;
 border-bottom-right-radius: 40px;
 border-top-left-radius: 20px;
 
@@ -96,7 +97,6 @@ button:disabled{
 }
 
 
-
 .new_order form button,.edit-destination form button{
     margin: 2px auto;
     margin-bottom: 60px;
@@ -107,20 +107,45 @@ button:disabled{
     box-shadow: 2px 2px 2px 2px yellowgreen;
 }
 
-.new_order,.edit-destination{
+.new_order{
     border: solid yellowgreen;
     height: 0vh;
     overflow: hidden;
     transition:all  0.8s;
 }
+.edit-destination{
+    border: solid yellowgreen;
+}
+
 .new_order.open{
     height:80vh;
+    
 }
 
- .edit-destination.open{
-    height:50vh;
-
+.order-edit{
+    padding: 10px;
 }
+.order-edit h3{
+    text-align: center;
+}
+
+
+.Overlay2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, 0.6);
+  }
+  .ordermodal{
+      background-color: #fff;
+      position: absolute;
+      top: 30vh;
+      left: 20%;
+
+  }
+
 
 
 @media screen and (max-width: 465px){
@@ -133,4 +158,5 @@ button:disabled{
 
 
     }
+
 

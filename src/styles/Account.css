@@ -1,22 +1,34 @@
-.acc_edit{
+
+.modal > div {
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 40vh;
-    width: 50%;
-    position: absolute;
-    left: 100px;
-     top: 300px;
-    background-color: beige;
-    transform: translateX(-140%);
-    transition: all 0.4s;
-    border: solid thin yellow;
-    
+    justify-content: space-between;
+
 }
 
-.acc_edit#active{
-transform: translateX(0);  
-}
+.modal {
+    position: absolute;
+    top: 30vh;
+    left: 30%;
+    
+    height: 40vh;
+    width: 50%;
+    background-color: #fff;
+    border: solid  yellow;
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, 0.6);
+  }
+
+
 
 
 .user-container{
@@ -53,13 +65,13 @@ transform: translateX(0);
 
 
 .editsub{
-    box-shadow: 2px 2px 2px 2px#fff ;
+    box-shadow: 2px 2px 2px 2px yellowgreen;
     border-radius: 10px;
     color:#fff;
     background-color: #f00;
     width: 60px;
     height: 30px;
-    margin-top: 80px;
+    margin-top: 30px;
     font-weight: bolder;
 }
 
