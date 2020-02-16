@@ -29,7 +29,6 @@ export class Orders extends Component {
 
         this.handleDeleteUpdate = this.handleDeleteUpdate.bind(this);
         this.handleClickCreate = this.handleClickCreate.bind(this);
-        this.handleClickEdit = this.handleClickEdit.bind(this);
         this.handleDestinationUpdate = this.handleDestinationUpdate.bind(this);
         this.handleUpdateOrder = this.handleUpdateOrder.bind(this);
 
