@@ -243,7 +243,7 @@ export class Orders extends Component {
 
 
     // TOG THE CREATE ORDER FORM
-    //---SET A VARIABLE ON THE STATE THAT REF A CLASS DISPLAYS THE FORM
+    //---SET A VARIABLE ON THE STATE THAT REF A CLASS TO DISPLAYS THE FORM
     handleClickCreate = () => {
 
         const newData = { ...this.state.data };
