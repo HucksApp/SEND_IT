@@ -1,14 +1,16 @@
 import React from 'react';
 
 const AdminOrdersList = (props) => {
-   
 
-let sn = 0
-    const orders =props.orders_list.map((order)=>{
-                sn++;
+//CREATE ID FOR EACH ORDER--REACT CHILD COMP 
+//CREATE ORDER TEMPLATE
+
+    let sn = 0
+    const orders = props.orders_list.map((order) => {
+        sn++;
 
         return (
-            <div className="list_top" key={sn}> 
+            <div className="list_top" key={sn}>
                 <p className="ord_lists_title1">{order.user_email}</p>
                 <p className="ord_lists_field1">{order.order_id}</p>
                 <p className="rord_lists_field2">{order.receiver_name}</p>
@@ -16,13 +18,14 @@ let sn = 0
                 <p className="ord_lists_field4">{order.pickup_address}</p>
                 <p className="ord_lists_field5">{order.destination_address}</p>
                 <p className="ord_lists_field6">{order.order_date.split('T')[0]}</p>
-                <p className="ord_lists_field7"  title ="UPDATE THE ORDER STATUS BELOW" >{order.status}</p>
-                <p className="ord_lists_field8"  title ="CHANGE THE ORDER CURRENT LOCATION BELOW">{order.c_location}</p>
+                <p className="ord_lists_field7" title="UPDATE THE ORDER STATUS BELOW" >{order.status}</p>
+                <p className="ord_lists_field8" title="CHANGE THE ORDER CURRENT LOCATION BELOW">{order.c_location}</p>
 
             </div>
-        
-        )}
+
         )
+    }
+    )
 
 
 
@@ -48,7 +51,7 @@ let sn = 0
                 ORDERS
             </h4>
             <div className="order_wrap">
-            {orders}
+                {orders}
             </div>
         </div>
     );

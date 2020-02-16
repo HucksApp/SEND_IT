@@ -1,81 +1,81 @@
 import React, { Component } from 'react'
 import toastr from '../notification/Toastr'
 
- class AccEdit extends Component {
+class AccEdit extends Component {
 
 
   state = {
-          data:{
-            newVal:"",
-            keyToValue:""
-          }
+    data: {
+      newVal: "",
+      keyToValue: ""
+    }
   };
 
+//CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
 
+  handleClick = () => {
 
-handleClick=()=>{
+    if (this.state.data.newVal === "") {
+      toastr.warning('THE CHANGE INPUT IS EMPTY')
 
-  if(this.state.data.newVal === ""){
-    toastr.warning('THE CHANGE INPUT IS EMPTY')
+    } else {
 
-  }else{
+      this.props.updateState(this.state.data);
 
-this.props.updateState(this.state.data);
+      const newData = { ...this.state.data };
 
-const newData = {...this.state.data};
+      newData.newVal = "";
+      newData.keyToValue = "";
 
-newData.newVal="";
-newData.keyToValue="";
+      this.setState({
+        data: newData
+      })
+      this.props.handleCloseModal()
 
-this.setState({
-    data: newData
-})
-this.props.handleCloseModal()
+    }
 
   }
 
-}
 
+//STORE INPUT IN STATE
 
+  handleChange = (e) => {
 
-
-handleChange=(e)=>{
- 
-const keyToValue = this.props.typ;
-const val = e.target.value;
-const data= {
+    const keyToValue = this.props.typ;
+    const val = e.target.value;
+    const data = {
       val, keyToValue
-}
+    }
 
-this.setState({
-          data
-});
-}
+    this.setState({
+      data
+    });
+  }
 
 
   render() {
     let impType;
-    switch(this.props.typ){
-        case 'user-name':
-        case 'house-address':
-          impType='text';
-          break;
-        case 'password':
-          impType= 'password';
-          break;
-        case 'phone-number':
-          impType= 'number'
+    switch (this.props.typ) {
+      case 'user-name':
+      case 'house-address':
+        impType = 'text';
         break;
-        default:
-          impType='text';
+      case 'password':
+        impType = 'password';
+        break;
+      case 'phone-number':
+        impType = 'number'
+        break;
+      default:
+        impType = 'text';
 
     };
 
     return (
       <div >
-    <h3 className="title">Replace {this.props.typdisplay}</h3>
-      <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" onChange={this.handleChange}/>
-      <button type="submit" className="editsub" onClick={this.handleClick}>UPDATE</button>
+        <h3 className="title">Replace {this.props.typdisplay}</h3>
+        <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" onChange={this.handleChange} />
+        <button type="submit" className="editsub" onClick={this.handleClick}>UPDATE</button>
       </div>
     )
   }
