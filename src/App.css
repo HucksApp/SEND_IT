@@ -4,17 +4,13 @@
   width: 100%;
 }
 
-.footer{
-  margin-top: 80px;
-  
+.footer {
+  margin-top: 30px;
 }
 
-.copywright{
-border-bottom: solid 15px beige;
-border-top: solid beige;
-margin-left: 120px;
-margin-right: 120px;
-
+.copywright {
+  border-bottom: solid 15px beige;
+  border-top: solid beige;
+  margin-left: 120px;
+  margin-right: 120px;
 }
-
-
