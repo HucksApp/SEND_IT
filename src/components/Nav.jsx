@@ -15,6 +15,8 @@ fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
 
 sessionStorage.clear();
 props.history.push('/home');
+toastr.success("YOU JUST LOGGED OUT")
+
 
 }
 
