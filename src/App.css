@@ -15,8 +15,11 @@
 }
 
 .copywright {
-  border-bottom: 10px solid beige;
-  border-top: solid beige;
+  border-bottom: 10px solid #fff;
+  border-top: solid #fff;
+  border-left: solid #fff;
+  border-right:solid #fff;
+  border-radius: 15px;
   margin-left: 120px;
   margin-right: 120px;
 }
