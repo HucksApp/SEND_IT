@@ -11,7 +11,7 @@ class AccEdit extends Component {
     }
   };
 
-//CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
+  //CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
 
   handleClick = () => {
 
@@ -37,7 +37,7 @@ class AccEdit extends Component {
   }
 
 
-//STORE INPUT IN STATE
+  //STORE INPUT IN STATE
 
   handleChange = (e) => {
 
@@ -53,6 +53,8 @@ class AccEdit extends Component {
   }
 
 
+//DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
+
   render() {
     let impType;
     switch (this.props.typ) {
@@ -64,7 +66,7 @@ class AccEdit extends Component {
         impType = 'password';
         break;
       case 'phone-number':
-        impType = 'number'
+        impType = 'tel'
         break;
       default:
         impType = 'text';
