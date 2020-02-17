@@ -6,7 +6,7 @@
 
 .footer {
   margin: 30px auto;
-  background:-webkit-linear-gradient(rgba(245,245,220,0.9),rgba(154,205,51,0.3),rgba(245,245,220,0.4));
+  background:-webkit-linear-gradient(rgba(245,245,220,1),rgba(245,245,220,0.7),rgba(245,245,220,0.4));
   border: thin solid yellow;
   border-radius: 10px;
   padding: 10px;
@@ -15,10 +15,10 @@
 }
 
 .copywright {
-  border-bottom: 10px solid #fff;
-  border-top: solid #fff;
-  border-left: solid #fff;
-  border-right:solid #fff;
+  border-bottom: 10px solid rgba(250,98,71,0.2);
+  border-top: solid rgba(250,98,71,0.2);
+  border-left: solid rgba(250,98,71,0.2);
+  border-right:solid rgba(250,98,71,0.2);
   border-radius: 15px;
   margin-left: 120px;
   margin-right: 120px;
