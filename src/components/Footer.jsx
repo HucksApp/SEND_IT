@@ -11,7 +11,7 @@ return(
             <p>SendIT provides courier quotes based on weight categories.</p>
         </div>
         <div className="contact">
-            <h3>CONTACT US</h3>
+            <h3>CONTACT</h3>
             <p title="SEND US AN EMAIL" style={{color: '#f00'}}>Email Us</p>
             <p title="REACH US ON FACEBOOK" style={{color: '#f00'}}>FaceBook</p>
         </div>
