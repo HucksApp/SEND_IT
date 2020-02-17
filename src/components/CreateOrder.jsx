@@ -54,23 +54,23 @@ export class CreateOrder extends Component {
         <form className="create-order" onSubmit={this.handleCreate} >
           <div>
             <h3>NEW ORDER PLACEMENT</h3>
-            <label htmlFor="receiverName">RECEIVERS NAME<span style={{color:'#f00'}}>*</span>:</label>
+            <label htmlFor="receiverName">RECEIVERS NAME<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="receiverName" type="text" onChange={this.handleChange} value={this.state.data.order.receiverName} placeholder="ENTER THE RECEIVERS NAME" required />
           </div>
           <div>
-            <label htmlFor="destinationAddress" >DESTINATION ADDRESS<span style={{color:'#f00'}}>*</span>:</label>
+            <label htmlFor="destinationAddress" >DESTINATION ADDRESS<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="destinationAddress" type="text" onChange={this.handleChange} value={this.state.data.order.destinationAddress} placeholder="ENTER THE DESTINATION ADDRESS" required />
           </div>
           <div>
-            <label htmlFor="pickupAddress" >PICKUP ADDRESS<span style={{color:'#f00'}}>*</span>:</label>
+            <label htmlFor="pickupAddress" >PICKUP ADDRESS<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="pickupAddress" type="text" onChange={this.handleChange} value={this.state.data.order.pickupAddress} placeholder="ENTER THE PICKUP ADDRESS" required />
           </div>
           <div>
-            <label htmlFor="description" >ORDER DESCRIPTION<span style={{color:'#f00'}}>*</span>:</label>
+            <label htmlFor="description" >ORDER DESCRIPTION<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="description" type="text" onChange={this.handleChange} value={this.state.data.order.description} placeholder="PLEASE ENTER DESCRIPTION IN.. WEIGHT,CONTENT,TYPE" required />
           </div>
           <div>
-            <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE NUMBER<span style={{color:'#f00'}}>*</span>:</label>
+            <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE NUMBER<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="receiverPhoneNumber" type="tel" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER THE RECEIVER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" required />
           </div>
           <button type="submit" title="SUBMIT">CREATE</button>
