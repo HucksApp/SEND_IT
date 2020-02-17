@@ -107,23 +107,23 @@ class Signup extends Component {
                 <form className="user-login" onSubmit={this.formAction}>
                     <div>
                         <p>Have An Account? Go To Login</p>
-                        <label htmlFor="username">USERNAME: </label>
+                        <label htmlFor="username">USERNAME<span style={{color:'#f00'}}>*</span>: </label>
                         <input id="username" type="text" placeholder="ENTER USER NAME" onChange={this.updateState} minLength="3" maxLength="20" required />
                     </div>
                     <div>
-                        <label htmlFor="phoneno" >PHONE NO: </label>
+                        <label htmlFor="phoneno" >PHONE NO<span style={{color:'#f00'}}>*</span>: </label>
                         <input id="phoneno" type="tel" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} minLength="8" maxLength="20" required />
                     </div>
                     <div>
-                        <label htmlFor="house_address" >HOUSE ADDRESS:</label>
+                        <label htmlFor="house_address" >HOUSE ADDRESS<span style={{color:'#f00'}}>*</span>:</label>
                         <input id="house_address" type="text" placeholder="ENTER HOUSE ADDRESS " onChange={this.updateState} />
                     </div>
                     <div>
-                        <label htmlFor="email">EMAIL:</label>
+                        <label htmlFor="email">EMAIL<span style={{color:'#f00'}}>*</span>:</label>
                         <input id="email" type="email" placeholder="ENTER EMAIL" onChange={this.updateState} required />
                     </div>
                     <div>
-                        <label htmlFor="password" >PASSWORD:</label>
+                        <label htmlFor="password" >PASSWORD<span style={{color:'#f00'}}>*</span>:</label>
                         <input id="password" placeholder="ENTER PASSWORD" type="password" onChange={this.updateState} minLength="8" maxLength="20" required />
                     </div>
                     <button disabled={this.state.data.chck} type="submit" title="CREATE ACCOUNT">Create</button>
