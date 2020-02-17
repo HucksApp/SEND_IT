@@ -1,124 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
 
-    <!DOCTYPE html>
-<html lang="en" >
-  <head>
-    <meta name="viewpoint" content="initia-scale=1.0">
-    <meta charset="utf-8">
-    <title>Pakage location</title>
+<head>
+  <meta name="viewpoint" content="initia-scale=1.0">
+  <meta charset="utf-8">
+  <title>Pakage location</title>
 
-    <style>
-
-    #map{
+  <style>
+    #map {
       height: 400px;
-      width:100%;
-      border:solid rgba(255, 255, 255, 0.5);
+      width: 100%;
+      border: solid rgba(255, 255, 255, 0.5);
     }
 
-    h2{
+    h2 {
       text-align: center;
     }
-    </style>
-  </head>
-  <body>
-    <h2>location</h2>
+  </style>
+</head>
 
-    <div id="map"></div>
+<body>
+  <h2>location</h2>
+
+  <div id="map"></div>
 
 
-    <script>
+  <script>
 
-let pickup;
-let presentLoc;
-const queryId = window.location.search.replace('?id=',"");
-const token = sessionStorage.getItem('token');
-console.log(token)
+    let pickup;
+    let presentLoc;
+    const queryId = window.location.search.replace('?id=', "");
+    const token = sessionStorage.getItem('token');
+    console.log(token)
 
-    fetch('https://s-i-api.herokuapp.com/api/v1/map?ordCk='+queryId,{
-                  method:"GET",
-                 headers:{ 
-                   Authorization : token
-                 }
+    fetch('https://s-i-api.herokuapp.com/api/v1/map?ordCk=' + queryId, {
+      method: "GET",
+      headers: {
+        Authorization: token
+      }
 
-    } ).then((res)=>{
-        return res.json();
-    }).then((data)=>{
+    }).then((res) => {
+      return res.json();
+    }).then((data) => {
       console.log(data)
-        pickup=data[0].pickup_address;
-        presentLoc = data[0].c_location;
+      pickup = data[0].pickup_address;
+      presentLoc = data[0].c_location;
     })
 
 
     let geocoder;
-    let  map;
+    let map;
 
-    function initMap(){
+    function initMap() {
       let latlng = new google.maps.LatLng(8.500000, 4.550000);
-  console.log('1');
+      console.log('1');
 
-                const options= {
-                        zoom:8,
-                        center:latlng
-                };
+      const options = {
+        zoom: 8,
+        center: latlng
+      };
 
-                map = new google.maps.Map(document.getElementById('map'), options);
-                addMarker(latlng,"<h3>point of dispatch</h3>" );
+      map = new google.maps.Map(document.getElementById('map'), options);
+      addMarker(latlng, "<h3>point of dispatch</h3>");
 
-console.log('2');
+      console.log('2');
 
-     geocoder = new google.maps.Geocoder();
-      geocoder.geocode({address:`${presentLoc}`},(results, status)=>{
-  console.log('3');
-        if(status=="OK"){
+      geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: `${presentLoc}` }, (results, status) => {
+        console.log('3');
+        if (status == "OK") {
           console.log(results[0].geometry.location);
           map.setCenter(results[0].geometry.location);
-console.log('4');
-          addMarker(results[0].geometry.location,"<h3>order curent location</h3>" );
+          console.log('4');
+          addMarker(results[0].geometry.location, "<h3>order curent location</h3>");
 
-        if(pickup!= undefined){
+          if (pickup != undefined) {
 
-            geocoder.geocode({address:`${pickup}`},(results, status)=>{
-              if(status=="OK"){
+            geocoder.geocode({ address: `${pickup}` }, (results, status) => {
+              if (status == "OK") {
                 console.log(results[0].geometry.location);
-                  addMarker(results[0].geometry.location,"<h3>pick up location</h3>");
-              }else{alert('we could not get your order location, check later')}
+                addMarker(results[0].geometry.location, "<h3>pick up location</h3>");
+              } else { alert('we could not get your order location, check later') }
 
             });
-          }else{return}
+          } else { return }
 
-        }else{alert('we could not get your order location, check later');}
+        } else { alert('we could not get your order location, check later'); }
 
+      });
+
+
+
+
+
+
+
+      function addMarker(curentLocation, message) {
+        let marker = new google.maps.Marker(
+          {
+            map: map,
+            position: curentLocation,
+            icon: "/images/icons8-marker-50.png"
+          }
+        );
+        const infoWindow = new google.maps.InfoWindow({ content: message });
+
+        marker.addListener('click', function () {
+          infoWindow.open(map, marker);
         });
 
 
-
-
-
-
-
-        function addMarker(curentLocation, message){
-          let marker = new google.maps.Marker(
-                                  {map:map,
-                                    position:curentLocation,
-                                    icon:"/images/icons8-marker-50.png"
-                                  }
-                                );
-              const infoWindow =  new google.maps.InfoWindow({content:message});
-
-                marker.addListener('click',function(){
-                      infoWindow.open(map, marker);
-            });
-
-
-        };
+      };
 
     };
 
 
 
 
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoduk96MV36i6RJFgvo80FqZTFBZj2k1M&callback=initMap"
-async defer></script>
-  </body>
-</html>
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoduk96MV36i6RJFgvo80FqZTFBZj2k1M&callback=initMap"
+    async defer></script>
+</body>
 
+</html>

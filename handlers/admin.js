@@ -1,9 +1,9 @@
-const formOne= document.querySelector('.loc');
-const formTwo= document.querySelector('.sta');
+const formOne = document.querySelector('.loc');
+const formTwo = document.querySelector('.sta');
 const btnOne = document.querySelector('.update-location');
 const btnTwo = document.querySelector('.status');
-const sub_destn= document.querySelector('.sub_destn');
-const sub_status= document.querySelector('.sub_status');
+const sub_destn = document.querySelector('.sub_destn');
+const sub_status = document.querySelector('.sub_status');
 const logout = document.getElementById('logout');
 const adminToken = sessionStorage.getItem('adminToken');
 
@@ -15,153 +15,153 @@ const adminToken = sessionStorage.getItem('adminToken');
 
 
 
-btnOne.addEventListener('click',(e)=>{
+btnOne.addEventListener('click', (e) => {
     console.log('here');
-if(formOne.classList.contains('show')){
-    formOne.classList.remove('show');
-}else{
-    formOne.classList.add('show')
-}
+    if (formOne.classList.contains('show')) {
+        formOne.classList.remove('show');
+    } else {
+        formOne.classList.add('show')
+    }
 });
 
-btnTwo.addEventListener('click',(e)=>{
-if(formTwo.classList.contains('show')){
-    formTwo.classList.remove('show');
-}else{
-    formTwo.classList.add('show')
-}
+btnTwo.addEventListener('click', (e) => {
+    if (formTwo.classList.contains('show')) {
+        formTwo.classList.remove('show');
+    } else {
+        formTwo.classList.add('show')
+    }
 });
 
-sub_destn.addEventListener('click',(e)=>{
+sub_destn.addEventListener('click', (e) => {
 
     e.preventDefault();
 
-    let userUpdateId ;
+    let userUpdateId;
     let toUpdateLotn;
     let toUpdateId;
-    if(formOne.user_id.value==""){
+    if (formOne.user_id.value == "") {
         window.alert("USER's ID FIELD IS EMPTY!");
-    }else{
-        userUpdateId  = formOne.user_id.value;
+    } else {
+        userUpdateId = formOne.user_id.value;
     };
-    if(formOne.location.value==""){
+    if (formOne.location.value == "") {
         window.alert("ORDER's LOCATION FIELD, TO BE UPDATED IS EMPTY!")
-    }else{
+    } else {
         toUpdateLotn = formOne.location.value;
     };
-    if(formOne.id.value==""){
+    if (formOne.id.value == "") {
         window.alert("ORDER's ID FIELD IS EMPTY")
-    }else{
+    } else {
         toUpdateId = formOne.id.value;
     };
 
     const data = {
-            userUpdateId,
-            toUpdateLotn,
-            toUpdateId
+        userUpdateId,
+        toUpdateLotn,
+        toUpdateId
     };
 
 
-    fetch('https://s-i-api.herokuapp.com/api/v1/update_location',{
-                method:'PUT',
-                headers:{
-                    "Content-Type":"application/json",
-                    Authorization: adminToken
-                },
-                body:JSON.stringify(data)
-    }).then((response)=>{
+    fetch('https://s-i-api.herokuapp.com/api/v1/update_location', {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: adminToken
+        },
+        body: JSON.stringify(data)
+    }).then((response) => {
         console.log(response);
     });
     console.log(data)
 
-   const all_change = document.querySelectorAll('p.curent-location');
-   [...all_change].forEach((change)=>{
-        if(change.classList.contains(userUpdateId) && change.classList.contains(toUpdateId) ){
+    const all_change = document.querySelectorAll('p.curent-location');
+    [...all_change].forEach((change) => {
+        if (change.classList.contains(userUpdateId) && change.classList.contains(toUpdateId)) {
             change.textContent = toUpdateLotn;
-            formOne.user_id.value="";
-            formOne.location.value="";
-            formOne.id.value="";
+            formOne.user_id.value = "";
+            formOne.location.value = "";
+            formOne.id.value = "";
         }
-   });
+    });
 
-   
+
 
 });
 
-sub_status.addEventListener('click',(e)=>{
+sub_status.addEventListener('click', (e) => {
     e.preventDefault();
 
-    let userUpdateId ;
+    let userUpdateId;
     let toUpdateStatus;
     let toUpdateId;
-    if(formTwo.user_id.value==""){
+    if (formTwo.user_id.value == "") {
         window.alert("USER's ID FIELD IS EMPTY!")
-    }else{
-        userUpdateId  = formTwo.user_id.value;
+    } else {
+        userUpdateId = formTwo.user_id.value;
     };
-    if(formTwo.id.value==""){
+    if (formTwo.id.value == "") {
         window.alert("ORDER's ID FIELD IS EMPTY")
-    }else{
+    } else {
         toUpdateId = formTwo.id.value;
     };
-    toUpdateStatus= formTwo.status.value;
+    toUpdateStatus = formTwo.status.value;
 
     const data = {
-            userUpdateId,
-            toUpdateStatus,
-            toUpdateId
+        userUpdateId,
+        toUpdateStatus,
+        toUpdateId
     };
 
 
-    fetch('https://s-i-api.herokuapp.com/api/v1/update_status',{
-                method:'PUT',
-                headers:{
-                    "Content-Type":"application/json",
-                    Authorization: adminToken
-                },
-                body:JSON.stringify(data)
-    }).then((response)=>{
+    fetch('https://s-i-api.herokuapp.com/api/v1/update_status', {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: adminToken
+        },
+        body: JSON.stringify(data)
+    }).then((response) => {
         console.log(response);
     });
     console.log(data)
 
     const alls_change = document.querySelectorAll('p.delivery-status');
-    [...alls_change].forEach((change)=>{
-         if(change.classList.contains(userUpdateId) && change.classList.contains(toUpdateId) ){
+    [...alls_change].forEach((change) => {
+        if (change.classList.contains(userUpdateId) && change.classList.contains(toUpdateId)) {
             change.textContent = toUpdateStatus;
-            formTwo.user_id.value="";
-            formTwo.id.value="";  
-         }
+            formTwo.user_id.value = "";
+            formTwo.id.value = "";
+        }
     });
-  
+
 
 });
 
 
 
-logout.addEventListener('click',(e)=>{
+logout.addEventListener('click', (e) => {
     e.preventDefault();
-    const chk= window.confirm('ARE YOU SURE ? .YOU WANT TO LOG OUT');
-    if(chk == false){
+    const chk = window.confirm('ARE YOU SURE ? .YOU WANT TO LOG OUT');
+    if (chk == false) {
         return
-    }else if (chk == true){
+    } else if (chk == true) {
 
 
-     
-        fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
+
+        fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res) => {
             return res.json();
-        }).then((message)=>{
+        }).then((message) => {
             console.log(message.message);
             window.location.assign('./home.html')
-                sessionStorage.clear();
-                setTimeout(()=>{window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY')},5000)
-    
+            sessionStorage.clear();
+            setTimeout(() => { window.alert('YOU HAVE LOGGED OUT SUCCESSFULLY') }, 5000)
+
         })
 
 
     }
 
-    
+
 
 })
 

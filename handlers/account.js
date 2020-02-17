@@ -1,6 +1,6 @@
 const edits = document.getElementsByClassName('edit-btn');
-const inputs= document.getElementsByTagName('input');
-const  containers = document.querySelectorAll('span.value');
+const inputs = document.getElementsByTagName('input');
+const containers = document.querySelectorAll('span.value');
 const changes = document.getElementsByClassName('change');
 const logout = document.getElementById('logout');
 const token = sessionStorage.getItem('token');
@@ -8,84 +8,84 @@ const token = sessionStorage.getItem('token');
 
 
 
-[...edits].forEach((edit)=>{
-edit.addEventListener('click',(e)=>{
-if(e.target.classList.contains('user-name')){
-    togBar('user-name', inputs)
+[...edits].forEach((edit) => {
+    edit.addEventListener('click', (e) => {
+        if (e.target.classList.contains('user-name')) {
+            togBar('user-name', inputs)
 
-} else if (e.target.classList.contains('house-address')){
+        } else if (e.target.classList.contains('house-address')) {
 
-    togBar('house-address', inputs)
+            togBar('house-address', inputs)
 
-} else if (e.target.classList.contains('phone-number')){
+        } else if (e.target.classList.contains('phone-number')) {
 
-    togBar('phone-number', inputs)
+            togBar('phone-number', inputs)
 
-}else if(e.target.classList.contains('password')) {
+        } else if (e.target.classList.contains('password')) {
 
-    togBar('password', inputs)
+            togBar('password', inputs)
 
-}else{ return }
-})
+        } else { return }
+    })
 });
 
 
 
-Array.from(changes).forEach((change)=>{
-change.addEventListener('click',(e)=>{
-    Array.from(inputs).forEach((input)=>{
-        if(e.target.classList.contains(input.id) && input.value !=""){
+Array.from(changes).forEach((change) => {
+    change.addEventListener('click', (e) => {
+        Array.from(inputs).forEach((input) => {
+            if (e.target.classList.contains(input.id) && input.value != "") {
 
-            let data = {newVal:input.value, keyToValue:input.id};
+                let data = { newVal: input.value, keyToValue: input.id };
 
-            console.log(data);
-            fetch('https://s-i-api.herokuapp.com/api/v1/update_profile',{
-                    method:"PUT",
-                    headers:{
-                        "Content-Type":"application/json",
+                console.log(data);
+                fetch('https://s-i-api.herokuapp.com/api/v1/update_profile', {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
                         Authorization: token
                     },
                     body: JSON.stringify(data)
-            }).then((response)=>{
-                console.log(response);
-                console.log(token)
-                input.value="";
-             input.classList.remove('show');  
-             toast(` You Just Updated \n Your ${input.id}`)    
-            })
+                }).then((response) => {
+                    console.log(response);
+                    console.log(token)
+                    input.value = "";
+                    input.classList.remove('show');
+                    toast(` You Just Updated \n Your ${input.id}`)
+                })
 
-        }else if(change.classList.contains(input.id) && input.value ==""){
-            toast('NOT A VALID CHANGE \n INPUT FIELD IS EMPTY')
-        }
-    })
+            } else if (change.classList.contains(input.id) && input.value == "") {
+                toast('NOT A VALID CHANGE \n INPUT FIELD IS EMPTY')
+            }
+        })
     })
 });
 
 
 
-[...inputs].forEach((input)=>{
-input.addEventListener('input',(e)=>{
-    const val = e.target.value;
-   [... containers].forEach((cont)=>{
-       const upd = cont.classList.value.split(' ')[1].toString();
-    if(e.target.id == upd){
-        cont.textContent = val;
-    }
-   })
+[...inputs].forEach((input) => {
+    input.addEventListener('input', (e) => {
+        const val = e.target.value;
+        [...containers].forEach((cont) => {
+            const upd = cont.classList.value.split(' ')[1].toString();
+            if (e.target.id == upd) {
+                cont.textContent = val;
+            }
+        })
+    })
 })
-})
 
 
 
 
-function togBar( identifier, inputs){
-    let identify= identifier;
-    [...inputs].forEach((input)=>{
-     if(input.id==identify && !input.classList.contains('show')){
-         input.classList.add('show');
-     }else if (input.id==identify && input.classList.contains('show')){
-        input.classList.remove('show');
-     }
+function togBar(identifier, inputs) {
+    let identify = identifier;
+    [...inputs].forEach((input) => {
+        if (input.id == identify && !input.classList.contains('show')) {
+            input.classList.add('show');
+        } else if (input.id == identify && input.classList.contains('show')) {
+            input.classList.remove('show');
+        }
     })
 
 }
@@ -93,28 +93,28 @@ function togBar( identifier, inputs){
 
 
 
-logout.addEventListener('click',(e)=>{
+logout.addEventListener('click', (e) => {
     e.preventDefault();
-    const chk= window.confirm('ARE YOU SURE ? .YOU WANT TO LOG OUT');
-    if(chk == false){
+    const chk = window.confirm('ARE YOU SURE ? .YOU WANT TO LOG OUT');
+    if (chk == false) {
         return
-    }else if (chk == true){
+    } else if (chk == true) {
 
 
-        fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res)=>{
-        return res.json();
-    }).then((message)=>{
-        console.log(message.message);
-        window.location.assign('./home.html')
+        fetch('https://s-i-api.herokuapp.com/api/v1/logout').then((res) => {
+            return res.json();
+        }).then((message) => {
+            console.log(message.message);
+            window.location.assign('./home.html')
             sessionStorage.clear();
-        
-        
 
-    })
+
+
+        })
 
     }
 
-    
+
 
 })
 
@@ -123,20 +123,20 @@ logout.addEventListener('click',(e)=>{
 
 
 
-const toast =(message)=>{
-    const options={
-                style:{
-                    main:{
-                        background: "blue",
-                        color: "white"
-                    }
-                },
-                settings:{
-                    duration: 4000
-                }
+const toast = (message) => {
+    const options = {
+        style: {
+            main: {
+                background: "blue",
+                color: "white"
+            }
+        },
+        settings: {
+            duration: 4000
+        }
     }
 
-return iqwerty.toast.Toast(message, options)
+    return iqwerty.toast.Toast(message, options)
 
 
 }
