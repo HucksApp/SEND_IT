@@ -12,8 +12,8 @@ return(
         </div>
         <div className="contact">
             <h3>CONTACT</h3>
-            <p title="SEND US AN EMAIL" style={{color: '#f00'}}>Email Us</p>
-            <p title="REACH US ON FACEBOOK" style={{color: '#f00'}}>FaceBook</p>
+            <p title="SEND US AN EMAIL" style={{color: '#f00'}}></p>
+            <p title="REACH US ON FACEBOOK" style={{color: '#f00'}}></p>
         </div>
         <div className="copywright">
             <h4 className="n-mark" style={{color: '#00f'}}>SEND <span style={{color: '#f00'}}>IT</span></h4>

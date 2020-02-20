@@ -7,7 +7,8 @@ class AccEdit extends Component {
   state = {
     data: {
       newVal: "",
-      keyToValue: ""
+      keyToValue: "",
+      limit: "",
     }
   };
 
@@ -56,6 +57,7 @@ class AccEdit extends Component {
 //DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
 
   render() {
+    let limit;
     let impType;
     switch (this.props.typ) {
       case 'user-name':
@@ -66,7 +68,8 @@ class AccEdit extends Component {
         impType = 'password';
         break;
       case 'phone-number':
-        impType = 'tel'
+        impType = 'tel';
+        limit = '13';
         break;
       default:
         impType = 'text';
@@ -76,7 +79,7 @@ class AccEdit extends Component {
     return (
       <div >
         <h3 className="title">Replace {this.props.typdisplay}</h3>
-        <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" onChange={this.handleChange} />
+        <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" minLength={this.state.data.limit} maxLength={this.state.data.limit} onChange={this.handleChange} />
         <button type="submit" className="editsub" onClick={this.handleClick}>UPDATE</button>
       </div>
     )

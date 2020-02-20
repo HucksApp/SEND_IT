@@ -184,7 +184,10 @@ height: 5vh;
         margin:0px;
         border:hidden;
     }
-    
+
+    .new_order{
+        overflow: scroll;
+    }
     
 }
 .order_sumary{
