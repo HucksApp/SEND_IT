@@ -68,7 +68,7 @@ class AccEdit extends Component {
         impType = 'password';
         break;
       case 'phone-number':
-        impType = 'tel';
+        impType = 'number';
         limit = '13';
         break;
       default:
