@@ -69,8 +69,8 @@ class Adminlog extends Component {
     return (
       <div className="admin">
         <form className="adminlog" onSubmit={this.handleSubmit}>
+        <p style={{ color: 'yellowgreen' }}>ADMIN SECTION !!!</p>
           <div>
-            <p style={{ color: 'yellowgreen' }}>ADMIN SECTION !!!</p>
             <label htmlFor="email">EMAIL:</label>
             <input id="email" type="text" onChange={this.handleChange} placeholder="ENTER EMAIL" required />
           </div>

@@ -95,8 +95,8 @@ class Login extends Component {
         return (
             <div className="login">
                 <form className="user-login" onSubmit={this.handleSubmit}>
+                <p>Dont't Have An Account? Go To Signup<span onClick={this.AdminSlide} id="adbtn">AD</span></p>
                     <div>
-                        <p>Dont't Have An Account? Go To Signup<span onClick={this.AdminSlide} id="adbtn">AD</span></p>
                         <label htmlFor="email">EMAIL:</label>
                         <input id="email" type="text" placeholder="ENTER EMAIL" onChange={this.handleChange} required />
                     </div>

@@ -109,8 +109,8 @@ class Signup extends Component {
         return (
             <div className="signup">
                 <form className="user-login" onSubmit={this.formAction}>
+                    <p>Have An Account? Go To Login</p>
                     <div>
-                        <p>Have An Account? Go To Login</p>
                         <label htmlFor="username">USERNAME<sup style={{ color: '#f00' }}>*</sup>: </label>
                         <input id="username" type="text" placeholder="ENTER USER NAME" onChange={this.updateState} minLength="3" maxLength="20" required />
                     </div>

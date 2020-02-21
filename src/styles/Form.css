@@ -1,103 +1,103 @@
-.login, .signup,.admin,.edit-destination,.new_order{
+.login, .signup, .admin, .edit-destination, .new_order {
     display: flex;
 }
 
-form{
+form {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
     margin: 40px auto;
     width: auto;
-    
 }
-form input{
-    width: 400px;
+
+form input {
+    width: 250px;
     margin-left: 10px;
     border: hidden;
 }
 
-form > div{
+form > div {
     margin-bottom: 30px;
-    border-bottom:solid yellowgreen;
+    width: 450px;
+    display: flex;
+    border-bottom: solid yellowgreen;
+    justify-content: flex-start;
 }
-form div p{
-    border:solid thin tomato;
+
+
+
+
+form  p {
+    border: solid thin tomato;
+    width: 450px;
 }
-form div p span{
+
+form div p span {
     margin-left: 10px;
 }
 
-form button{
+form button {
     margin: 2px auto;
     margin-bottom: 60px;
     font-weight: bolder;
     font-size: larger;
     width: 100px;
     height: 50px;
-    box-shadow: 2px 2px 2px 2px moccasin ;
+    box-shadow: 2px 2px 2px 2px moccasin;
     border-radius: 10px;
-    color:#fff;
+    color: #fff;
     background-color: tomato;
 }
-button:hover{
+
+button:hover {
     cursor: pointer;
     opacity: 0.7;
 }
 
-
-@media screen and (max-width: 465px){
-
-form{
-    padding-left: 5px;
-    align-items: center;
-      
-}
-form button{
-    margin-bottom: 10%;
-
+@media screen and (max-width: 465px) {
+    form {
+        padding-left: 5px;
+        align-items: center;
+    }
+    form button {
+        margin-bottom: 10%;
+    }
 }
 
+.admin {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    border: solid red;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 20px;
 }
 
-.admin{
-background-color: #000;
-display: flex;
-justify-content: center;
-margin: 20px;
-border:solid red;
-border-bottom-right-radius: 40px;
-border-top-left-radius: 20px;
-
-}
-
-
-form.adminlog{
+form.adminlog {
     background-color: #000;
     color: #fff;
     text-align: center;
 }
 
-form.adminlog input{
+form.adminlog input {
     background-color: inherit;
     color: tomato;
 }
 
-
-#adbtn{
+#adbtn {
     color: yellowgreen;
-
-}
-#adbtn:hover{
-cursor: pointer;
 }
 
+#adbtn:hover {
+    cursor: pointer;
+}
 
-button:disabled{
+button:disabled {
     cursor: not-allowed;
 }
 
-
-.new_order form button,.edit-destination form button{
+.new_order form button, .edit-destination form button {
     margin: 2px auto;
     margin-bottom: 60px;
     font-weight: bolder;
@@ -106,29 +106,40 @@ button:disabled{
     height: 50px;
     box-shadow: 2px 2px 2px 2px yellowgreen;
 }
+.new_order label{
+    font-size: 0.8em;
+}
 
-.new_order{
+.new_order form h3{
+    text-align: center;
+    width: 500px;
+}
+
+
+
+.new_order {
     border: solid yellowgreen;
     height: 0vh;
     overflow: hidden;
-    transition:all  0.8s;
+    transition: all 0.8s;
 }
-.edit-destination{
+
+.edit-destination {
     border: solid yellowgreen;
 }
 
-.new_order.open{
-    height:80vh;
-    
+.new_order.open {
+    height: 80vh;
 }
 
-.order-edit{
+
+.order-edit {
     padding: 10px;
 }
-.order-edit h3{
+
+.order-edit h3 {
     text-align: center;
 }
-
 
 .Overlay2 {
     position: fixed;
@@ -136,27 +147,20 @@ button:disabled{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0, 0.6);
-  }
-  .ordermodal{
-      background-color: #fff;
-      position: absolute;
-      top: 30vh;
-      left: 20%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
-  }
+.ordermodal {
+    background-color: #fff;
+    position: absolute;
+    top: 30vh;
+    left: 20%;
+}
 
-
-
-@media screen and (max-width: 465px){
-
-    form input{
+@media screen and (max-width: 465px) {
+    form input {
         width: 200px;
         margin-left: 10px;
         border: hidden;
     }
-
-
-    }
-
-
+}
