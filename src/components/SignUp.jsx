@@ -66,8 +66,8 @@ class Signup extends Component {
         e.preventDefault();
         const numChk = parseInt(this.state.data.user.phoneNumber);
         if(  numChk > 2349999999999 || numChk < 2340000000000 ){
-                toastr.warning('INCORRECT NUMBER FORMAT');
-                toastr.info("ENTER NUMBER IN PROPER FORMAT TO PROCEED");
+                toastr.warning('INCORRECT PHONE NUMBER FORMAT');
+                toastr.info("ENTER PHONE NUMBER IN PROPER FORMAT TO PROCEED");
         }else{
         submitControl(true, this);
         fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
