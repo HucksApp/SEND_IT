@@ -8,18 +8,20 @@ class AccEdit extends Component {
     data: {
       newVal: "",
       keyToValue: "",
-      limit: "",
     }
   };
 
   //CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
 
   handleClick = () => {
-
+console.log(this.state.data.newVal)
     if (this.state.data.newVal === "") {
       toastr.warning('THE CHANGE INPUT IS EMPTY')
 
-    } else {
+    } else if(this.props.typ === 'phone_number' && parseInt(this.state.data.val) > 2349999999999 || parseInt(this.state.data.val) < 2340000000000 ) {
+        toastr.error("INCORRECT PHONE NUMBER FORMAT");
+        toastr.info("PLEASE INPUT PHONE NUMBER IN THE RIGHT FORMAT")
+    }else{ 
 
       this.props.updateState(this.state.data);
 
@@ -38,6 +40,7 @@ class AccEdit extends Component {
   }
 
 
+
   //STORE INPUT IN STATE
 
   handleChange = (e) => {
@@ -54,32 +57,43 @@ class AccEdit extends Component {
   }
 
 
-//DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
+  //DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
 
   render() {
-    let limit;
+    console.log(this.props.typ)
+  
+    
+    let holder;
     let impType;
     switch (this.props.typ) {
-      case 'user-name':
-      case 'house-address':
+      case 'user_name':
+      case 'house_address':
         impType = 'text';
+        holder="ENTER THE NEW CONTENT";
+        
         break;
       case 'password':
         impType = 'password';
+        holder="ENTER THE NEW CONTENT";
+        
         break;
-      case 'phone-number':
+      case 'phone_number':
         impType = 'number';
-        limit = '13';
+        holder="ENTER NO IN FORMAT 2348012345678";
+        
         break;
       default:
         impType = 'text';
+        holder="ENTER THE NEW CONTENT";
+        
 
     };
-
+    
+  
     return (
       <div >
         <h3 className="title">Replace {this.props.typdisplay}</h3>
-        <input type={impType} placeholder="ENTER THE NEW CONTENT" value={this.state.data.newVal} className="edit-i" minLength={this.state.data.limit} maxLength={this.state.data.limit} onChange={this.handleChange} />
+        <input type={impType} placeholder={holder} value={this.state.data.newVal} className="edit-i"  onChange={this.handleChange} />
         <button type="submit" className="editsub" onClick={this.handleClick}>UPDATE</button>
       </div>
     )

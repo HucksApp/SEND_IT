@@ -112,7 +112,7 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label htmlFor="phoneno" >PHONE NO<sup style={{color:'#f00'}}>*</sup>: </label>
-                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} minLength="13" maxLength="13" required />
+                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} min="2340000000000" max="2349999999999" required />
                     </div>
                     <div>
                         <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{color:'#f00'}}>*</sup>:</label>
