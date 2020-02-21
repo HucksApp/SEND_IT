@@ -59,8 +59,6 @@ class AccEdit extends Component {
   //DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
 
   render() {
-    console.log(this.props.typ)
-  
     
     let holder;
     let impType;
