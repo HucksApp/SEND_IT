@@ -14,12 +14,16 @@ class AccEdit extends Component {
   //CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
 
   handleClick = () => {
+const newchk = parseInt(this.state.data.val);
     if (this.state.data.newVal === "") {
       toastr.warning('THE CHANGE INPUT IS EMPTY')
 
-    } else if(this.props.typ === 'phone_number' && parseInt(this.state.data.val) > 2349999999999 || parseInt(this.state.data.val) < 2340000000000 ) {
-        toastr.error("INCORRECT PHONE NUMBER FORMAT");
-        toastr.info("PLEASE INPUT PHONE NUMBER IN THE RIGHT FORMAT")
+    } else if(this.props.typ === 'phone_number' ) {
+        if( newchk > 2349999999999 ||  newchk < 2340000000000){
+          toastr.warning("INCORRECT PHONE NUMBER FORMAT");
+          toastr.info("PLEASE INPUT PHONE NUMBER IN THE RIGHT FORMAT")
+        }
+       
     }else{ 
 
       this.props.updateState(this.state.data);
@@ -59,6 +63,7 @@ class AccEdit extends Component {
   //DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
 
   render() {
+  
     
     let holder;
     let impType;
