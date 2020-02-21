@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  background-color: beige;
-  border: solid thin yellow;
+  background-color: #FFE4B5;
+  border: solid thin beige;
   margin-bottom: 60px;
 }
 
