@@ -57,15 +57,15 @@ export class CreateOrder extends Component {
             <input id="receiverName" type="text" onChange={this.handleChange} value={this.state.data.order.receiverName} placeholder="ENTER THE RECEIVERS NAME" required />
           </div>
           <div>
-            <label htmlFor="destinationAddress" >DESTINATION ADDRESS<sup style={{color:'#f00'}}>*</sup>:</label>
+            <label htmlFor="destinationAddress" >DESTINATION<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="destinationAddress" type="text" onChange={this.handleChange} value={this.state.data.order.destinationAddress} placeholder="ENTER THE DESTINATION ADDRESS" required />
           </div>
           <div>
-            <label htmlFor="pickupAddress" >PICKUP ADDRESS<sup style={{color:'#f00'}}>*</sup>:</label>
+            <label htmlFor="pickupAddress" >PICKUP<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="pickupAddress" type="text" onChange={this.handleChange} value={this.state.data.order.pickupAddress} placeholder="ENTER THE PICKUP ADDRESS" required />
           </div>
           <div>
-            <label htmlFor="description" >ORDER DESCRIPTION<sup style={{color:'#f00'}}>*</sup>:</label>
+            <label htmlFor="description" >DESCRIPTION<sup style={{color:'#f00'}}>*</sup>:</label>
             <input id="description" type="text" onChange={this.handleChange} value={this.state.data.order.description} placeholder="PLEASE ENTER DESCRIPTION IN.. WEIGHT,CONTENT,TYPE" required />
           </div>
           <div>
