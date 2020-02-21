@@ -70,7 +70,7 @@ export class CreateOrder extends Component {
           </div>
           <div>
             <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE<sup style={{color:'#f00'}}>*</sup>:</label>
-            <input id="receiverPhoneNumber" type="tel" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER THE RECEIVER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" required />
+            <input id="receiverPhoneNumber" type="tel" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER PHONE IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" required />
           </div>
           <button type="submit" title="SUBMIT">CREATE</button>
         </form>
