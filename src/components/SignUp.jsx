@@ -21,7 +21,7 @@ class Signup extends Component {
         }
     };
 
-//STORE INPUT IN STATE
+    //STORE INPUT IN STATE
 
     updateState = (e) => {
         const newData = { ...this.state.data };
@@ -57,15 +57,19 @@ class Signup extends Component {
     }
 
 
-//HANDLE FORM SUBMIT
-//---DISABLE FORM AFTER FIRST ENTRY
-//---SEND AN API CALL TO REQUEST FOR NEW SESSION JWT
+    //HANDLE FORM SUBMIT
+    //---DISABLE FORM AFTER FIRST ENTRY
+    //---SEND AN API CALL TO REQUEST FOR NEW SESSION JWT
 
 
     formAction = (e) => {
         e.preventDefault();
-
-        submitControl(true, this)
+        const numChk = parseInt(this.state.data.user.phoneNumber);
+        if(  numChk > 2349999999999 || numChk < 2340000000000 ){
+                toastr.warning('INCORRECT NUMBER FORMAT');
+                toastr.info("ENTER NUMBER IN PROPER FORMAT TO PROCEED");
+        }else{
+        submitControl(true, this);
         fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
             method: "POST",
             headers: {
@@ -95,7 +99,7 @@ class Signup extends Component {
                 toastr.error('THERE WAS AN ERROR CREATING NEW USER ' + this.state.data.user.username)
                 console.log(err)
             })
-
+        }
 
     }
 
@@ -107,23 +111,23 @@ class Signup extends Component {
                 <form className="user-login" onSubmit={this.formAction}>
                     <div>
                         <p>Have An Account? Go To Login</p>
-                        <label htmlFor="username">USERNAME<sup style={{color:'#f00'}}>*</sup>: </label>
+                        <label htmlFor="username">USERNAME<sup style={{ color: '#f00' }}>*</sup>: </label>
                         <input id="username" type="text" placeholder="ENTER USER NAME" onChange={this.updateState} minLength="3" maxLength="20" required />
                     </div>
                     <div>
-                        <label htmlFor="phoneno" >PHONE NO<sup style={{color:'#f00'}}>*</sup>: </label>
-                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} min="2340000000000" max="2349999999999" required />
+                        <label htmlFor="phoneno" >PHONE NO<sup style={{ color: '#f00' }}>*</sup>: </label>
+                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState}  required />
                     </div>
                     <div>
-                        <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{color:'#f00'}}>*</sup>:</label>
+                        <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <input id="house_address" type="text" placeholder="ENTER HOUSE ADDRESS " onChange={this.updateState} />
-                    </div>
+         </div>
                     <div>
-                        <label htmlFor="email">EMAIL<sup style={{color:'#f00'}}>*</sup>:</label>
+                        <label htmlFor="email">EMAIL<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <input id="email" type="email" placeholder="ENTER EMAIL" onChange={this.updateState} required />
                     </div>
                     <div>
-                        <label htmlFor="password" >PASSWORD<sup style={{color:'#f00'}}>*</sup>:</label>
+                        <label htmlFor="password" >PASSWORD<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <input id="password" placeholder="ENTER PASSWORD" type="password" onChange={this.updateState} minLength="8" maxLength="20" required />
                     </div>
                     <button disabled={this.state.data.chck} type="submit" title="CREATE ACCOUNT">Create</button>

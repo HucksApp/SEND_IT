@@ -14,7 +14,6 @@ class AccEdit extends Component {
   //CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
 
   handleClick = () => {
-console.log(this.state.data.newVal)
     if (this.state.data.newVal === "") {
       toastr.warning('THE CHANGE INPUT IS EMPTY')
 
