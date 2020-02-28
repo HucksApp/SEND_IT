@@ -58,14 +58,14 @@ class Signup extends Component {
         });
     }
 
-    passAddress = ({ address }) => {
-        const copydata = { ...this.state.data };
-        copydata.user.houseAddress = address
-        this.setState({
-            data: copydata
-        })
-        console.log(this.state.data)
-    }
+passAddress = ( { address } ) => {
+    const copydata = {...this.state.data};
+    copydata.user.houseAddress = address
+    this.setState({
+        data: copydata
+    })
+    console.log(this.state.data)
+}
 
 
     //HANDLE FORM SUBMIT
@@ -80,7 +80,7 @@ class Signup extends Component {
         if (numChk > 2349999999999 || numChk < 2340000000000) {
             toastr.warning('INCORRECT NUMBER FORMAT');
             toastr.info("ENTER NUMBER IN PROPER FORMAT TO PROCEED");
-        } else if (this.state.data.user.houseAddress === "") {
+        }else if(this.state.data.user.houseAddress === ""){
             toastr.warning('PLEASE ENTER HOUSE ADDRESS');
         } else {
             submitControl(true, this);
@@ -136,8 +136,8 @@ class Signup extends Component {
                     <div>
                         <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <AutocompleteAddress
-                            addressType=" HOUSE ADDRESS "
-                            passAddress={this.passAddress}
+                        addressType =" HOUSE ADDRESS "
+                        passAddress={this.passAddress}
                         />
 
                     </div>
