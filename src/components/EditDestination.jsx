@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import AutocompleteAddress from './AutocompleteAddress'
 
 
 export class EditDestination extends Component {
@@ -13,9 +13,6 @@ export class EditDestination extends Component {
     }
   }
 
-
-  //SAVE INPUT IN STATE
-
   handleChange = (e) => {
     const copyData = { ...this.state.data };
     copyData.orderUpdate[e.target.id] = e.target.value;
@@ -25,9 +22,13 @@ export class EditDestination extends Component {
 
   }
 
-  //HANDLE SUBMIT FOR DESTINATION EDIT FIELD
-  //----SEND THE DATA UP
-  //---EMPTY THE STATE AND FORM
+  passAddress = ({ address }) => {
+    const copyData = { ...this.state.data };
+    copyData.orderUpdate.upDestnAddress = address;
+    this.setState({
+      data: copyData
+    })
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -48,13 +49,18 @@ export class EditDestination extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className={'edit-destination ' + this.props.show}>
         <form className="order-edit" onSubmit={this.handleSubmit} >
+          <h3>EDIT DESTINATION</h3>
           <div>
-            <h3>EDIT DESTINATION</h3>
             <label htmlFor="upDestnAddress">NEW DESTINATION:</label>
-            <input id="upDestnAddress" type="text" onChange={this.handleChange} value={this.state.data.orderUpdate.upDestnAddress} placeholder="ENTER NEW DESTINATION ADDRESS" required />
+            <AutocompleteAddress
+              addressType=" NEW DESTINATION ADDRESS "
+              passAddress={this.passAddress}
+
+            />
           </div>
           <div>
             <label htmlFor="ordId" >ORDER:</label>

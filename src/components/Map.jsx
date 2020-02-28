@@ -143,5 +143,5 @@ class orderMap extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDoduk96MV36i6RJFgvo80FqZTFBZj2k1M'
+    apiKey: process.env.API_KEY
 })(orderMap)

@@ -65,40 +65,40 @@ class Signup extends Component {
     formAction = (e) => {
         e.preventDefault();
         const numChk = parseInt(this.state.data.user.phoneNumber);
-        if(  numChk > 2349999999999 || numChk < 2340000000000 ){
-                toastr.warning('INCORRECT PHONE NUMBER FORMAT');
-                toastr.info("ENTER PHONE NUMBER IN PROPER FORMAT TO PROCEED");
-        }else{
-        submitControl(true, this);
-        fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state.data.user)
-        })
-
-            .then(res => { return res.json() })
-            .then(data => {
-                submitControl(false, this);
-                switch (data.valid) {
-                    case false:
-                        toastr.warning(data.message);
-                        this.props.history.push('/login');
-                        break;
-                    case true:
-                        toastr.success("ACCOUNT CREATED SUCCESSFULLY");
-                        toastr.success("YOU ARE LOGGED IN AS " + this.state.data.user.email);
-                        sessionStorage.setItem('token', data.token);
-                        this.props.history.push('/account');
-                        break;
-                    default:
-                        toastr.info('NOT A VALID INFO')
-                };
-            }).catch(err => {
-                toastr.error('THERE WAS AN ERROR CREATING NEW USER ' + this.state.data.user.username)
-                console.log(err)
+        if (numChk > 2349999999999 || numChk < 2340000000000) {
+            toastr.warning('INCORRECT PHONE NUMBER FORMAT');
+            toastr.info("ENTER PHONE NUMBER IN PROPER FORMAT TO PROCEED");
+        } else {
+            submitControl(true, this);
+            fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(this.state.data.user)
             })
+
+                .then(res => { return res.json() })
+                .then(data => {
+                    submitControl(false, this);
+                    switch (data.valid) {
+                        case false:
+                            toastr.warning(data.message);
+                            this.props.history.push('/login');
+                            break;
+                        case true:
+                            toastr.success("ACCOUNT CREATED SUCCESSFULLY");
+                            toastr.success("YOU ARE LOGGED IN AS " + this.state.data.user.email);
+                            sessionStorage.setItem('token', data.token);
+                            this.props.history.push('/account');
+                            break;
+                        default:
+                            toastr.info('NOT A VALID INFO')
+                    };
+                }).catch(err => {
+                    toastr.error('THERE WAS AN ERROR CREATING NEW USER ' + this.state.data.user.username)
+                    console.log(err)
+                })
         }
 
     }
@@ -116,12 +116,12 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label htmlFor="phoneno" >PHONE NO<sup style={{ color: '#f00' }}>*</sup>: </label>
-                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState}  required />
+                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} required />
                     </div>
                     <div>
                         <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <input id="house_address" type="text" placeholder="ENTER HOUSE ADDRESS " onChange={this.updateState} />
-         </div>
+                    </div>
                     <div>
                         <label htmlFor="email">EMAIL<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <input id="email" type="email" placeholder="ENTER EMAIL" onChange={this.updateState} required />

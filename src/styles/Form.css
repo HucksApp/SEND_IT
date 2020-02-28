@@ -10,13 +10,13 @@ form {
     width: auto;
 }
 
-form input {
+form input, .location-search-input {
     width: 250px;
     margin-left: 10px;
     border: hidden;
 }
 
-form > div {
+form>div {
     margin-bottom: 30px;
     width: 450px;
     display: flex;
@@ -24,10 +24,7 @@ form > div {
     justify-content: flex-start;
 }
 
-
-
-
-form  p {
+form p {
     border: solid thin tomato;
     width: 450px;
 }
@@ -106,16 +103,15 @@ button:disabled {
     height: 50px;
     box-shadow: 2px 2px 2px 2px yellowgreen;
 }
-.new_order label{
+
+.new_order label {
     font-size: 0.8em;
 }
 
-.new_order form h3{
+.new_order form h3 {
     text-align: center;
     width: 500px;
 }
-
-
 
 .new_order {
     border: solid yellowgreen;
@@ -131,7 +127,6 @@ button:disabled {
 .new_order.open {
     height: 80vh;
 }
-
 
 .order-edit {
     padding: 10px;
@@ -163,4 +158,34 @@ button:disabled {
         margin-left: 10px;
         border: hidden;
     }
+}
+
+.home img {
+    width: 150px;
+}
+
+.suggestion-item {
+    display: flex;
+    border-left: solid yellowgreen;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #fff;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.suggestion-item--active {
+    cursor: pointer;
+    display: flex;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: yellowgreen;
+}
+
+.autocomplete-dropdown-container {
+    position: absolute;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px;
 }

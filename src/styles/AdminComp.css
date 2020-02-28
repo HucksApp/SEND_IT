@@ -57,6 +57,7 @@
     align-items: flex-start;
     background-color: whitesmoke;
     border-radius: 5px;
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2);
 }
 
 
@@ -111,6 +112,7 @@
 
 .admin_submit{
     margin: 20px auto;
+    width: 120px;
     font-weight: bold;
     background-color: darkgoldenrod;
 

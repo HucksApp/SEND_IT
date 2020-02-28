@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import AutocompleteAddress from './AutocompleteAddress'
+import toastr from '../notification/Toastr'
 
 export class CreateOrder extends Component {
 
-  state = {
+
+constructor(props){
+  super(props);
+
+
+  this.state = {
     data: {
       order: {
         receiverName: "",
@@ -11,11 +18,20 @@ export class CreateOrder extends Component {
         receiverPhoneNumber: "",
         description: "",
         date: ""
-      }
+      },
+      empty:""
     }
   }
 
-  // STORE INPUT IN STATE
+
+  this.emptyDes = React.createRef();
+  this.emptyPic = React.createRef();
+  this.handleChange = this.handleChange.bind(this);
+  this.passAddress = this.passAddress.bind(this)
+
+}
+
+
 
   handleChange = (e) => {
     const newData = { ...this.state.data };
@@ -23,54 +39,98 @@ export class CreateOrder extends Component {
     this.setState({
       data: newData
     })
+    console.log(this.state)
 
   }
 
-  //HANDLE THE NEW ORDER FORM
-  //---PASS THE INPUT DATA STORED IN STATE UP
-  //---EMPTY THE ORDER FORM
+  passAddress = ({ address, addressTyp }) => {
+    console.log({ address, addressTyp })
+    const dataCopy = { ...this.state.data }
+    dataCopy.empty = address;
+    switch (addressTyp) {
+      case 'destination':
+        dataCopy.order.destinationAddress = address;
+        this.setState({ data: dataCopy })
+        break;
+      case 'pickup':
+        dataCopy.order.pickupAddress = address;
+        this.setState({ data: dataCopy });
+        break;
+      default:
+        return
+    }
+
+  }
 
   handleCreate = (e) => {
     e.preventDefault();
-    this.props.updateOrder(this.state.data.order);
 
-    const newCopy = { ...this.state.data }
-    newCopy.order.receiverName = "";
-    newCopy.order.destinationAddress = "";
-    newCopy.order.pickupAddress = "";
-    newCopy.order.description = "";
-    newCopy.order.receiverPhoneNumber = "";
-    this.setState({
-      data: newCopy
-    });
+    if (this.state.data.order.receiverName === "") {
+      toastr.error('RECEIVERS NAME IS EMPTY')
+    } else if (this.state.data.order.destinationAddress === "") {
+      toastr.error('DESTINATION ADDRESS IS EMPTY')
+    } else if (this.state.data.order.pickupAddress === "") {
+      toastr.error('PICK UP ADDRESS IS EMPTY')
+    } else if (this.state.data.order.description === "") {
+      toastr.error('ORDER DESCRIPTION IS EMPTY')
+    } else if (this.state.data.order.receiverPhoneNumber === "") {
+      toastr.error('RECEIVERS PHONE NUMBER IS EMPTY')
+    } else {
 
+      this.props.updateOrder(this.state.data.order);
 
+      const newCopy = { ...this.state.data }
+      newCopy.order.receiverName = "";
+      newCopy.order.destinationAddress = "";
+      newCopy.order.pickupAddress = "";
+      newCopy.order.description = "";
+      newCopy.order.receiverPhoneNumber = "";
+      this.emptyDes.current.state.data.address = "";
+      this.emptyPic.current.state.data.address = "";
+  
+      this.setState({
+        data: newCopy
+      });
+
+    }
   }
 
   render() {
+
     return (
       <div className={'new_order ' + this.props.show} >
         <form className="create-order" onSubmit={this.handleCreate} >
-        <h3>NEW ORDER PLACEMENT</h3>
+          <h3>NEW ORDER PLACEMENT</h3>
           <div>
-            <label htmlFor="receiverName">RECEIVERS NAME<sup style={{color:'#f00'}}>*</sup>:</label>
+            <label htmlFor="receiverName">RECEIVERS NAME:</label>
             <input id="receiverName" type="text" onChange={this.handleChange} value={this.state.data.order.receiverName} placeholder="ENTER THE RECEIVERS NAME" required />
           </div>
           <div>
-            <label htmlFor="destinationAddress" >DESTINATION<sup style={{color:'#f00'}}>*</sup>:</label>
-            <input id="destinationAddress" type="text" onChange={this.handleChange} value={this.state.data.order.destinationAddress} placeholder="ENTER THE DESTINATION ADDRESS" required />
+            <label htmlFor="destinationAddress" >DESTINATION:</label>
+            <AutocompleteAddress
+              
+              addressType="DESTINATION ADDRESS"
+              addressTyp="destination"
+              passAddress={this.passAddress}
+              ref = {this.emptyDes}
+            />
           </div>
           <div>
-            <label htmlFor="pickupAddress" >PICKUP<sup style={{color:'#f00'}}>*</sup>:</label>
-            <input id="pickupAddress" type="text" onChange={this.handleChange} value={this.state.data.order.pickupAddress} placeholder="ENTER THE PICKUP ADDRESS" required />
+            <label htmlFor="pickupAddress" >PICKUP:</label>
+            <AutocompleteAddress
+              addressType=" PICKUP ADDRESS "
+              addressTyp="pickup"
+              passAddress={this.passAddress}
+              ref = {this.emptyPic}
+            />
           </div>
           <div>
-            <label htmlFor="description" >DESCRIPTION<sup style={{color:'#f00'}}>*</sup>:</label>
-            <input id="description" type="text" onChange={this.handleChange} value={this.state.data.order.description} placeholder="PLEASE ENTER DESCRIPTION IN.. WEIGHT,CONTENT,TYPE" required />
+            <label htmlFor="description" >ORDER DESCRIPTION:</label>
+            <input id="description" type="text" onChange={this.handleChange} value={this.state.data.order.description} placeholder="PLEASE ENTER DESCRIPTION IN.. 123kg, 2Content 3Content" required />
           </div>
           <div>
-            <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE<sup style={{color:'#f00'}}>*</sup>:</label>
-            <input id="receiverPhoneNumber" type="tel" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER PHONE IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" required />
+            <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE:</label>
+            <input id="receiverPhoneNumber" type="number" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER THE RECEIVER PHONE NO IN FORMAT 234 12345678" min="2340000000000" max="2349999999999" required />
           </div>
           <button type="submit" title="SUBMIT">CREATE</button>
         </form>
