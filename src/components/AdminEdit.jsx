@@ -1,36 +1,21 @@
 import React, { Component } from 'react'
 import toastr from '../notification/Toastr'
 
-
 export class AdminEdit extends Component {
+  state = {
+    data: {
+      ord: {
+        userId: "",
+        orderId: "",
+        orderStatus: "",
+        orderLocation: ""
+      },
+      class: "closed"
 
-  constructor(props) {
-    super(props);
-
-
-    this.state = {
-      data: {
-        ord: {
-          userId: "",
-          orderId: "",
-          orderStatus: "",
-          orderLocation: ""
-        },
-        class: "closed"
-
-      }
     }
-    this.empty = React.createRef();
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClickA = this.handleClickA.bind(this);
-    this.handleClickB = this.handleClickB.bind(this);
-    this.handleSubmitLocation = this.handleSubmitLocation.bind(this);
-    this.handleSubmitStatus = this.handleSubmitStatus.bind(this);
-
-
-
   }
 
+  //STORE INPUT IN STATE
   handleChange = (e) => {
 
     const dataCopy = { ...this.state.data }
@@ -38,9 +23,12 @@ export class AdminEdit extends Component {
     this.setState({
       data: dataCopy
     })
-    console.log(this.state)
+
   }
 
+  //REACTION  TO SUBMIT FOR LOCATION CHANGE
+  //---PASS UP THE STATE DATA 
+  //----EMPTY THE STATE AND FORM
 
   handleSubmitLocation = (e) => {
     e.preventDefault();
@@ -76,6 +64,12 @@ export class AdminEdit extends Component {
     }
   }
 
+
+
+
+  //REACTION  TO SUBMIT FOR STATUS CHANGE
+  //---PASS UP THE STATE DATA 
+  //----EMPTY THE STATE AND STATUS FIELDS
 
   handleSubmitStatus = (e) => {
     e.preventDefault();
@@ -118,9 +112,11 @@ export class AdminEdit extends Component {
 
 
 
+  // TOGGLE THE STATUS UPDATE FORM
+  //------CHECK THE STATUS FORM OPEN VARIABLE ON STATE
+  //-------THIS VARIABLE REFERENCES A CLASS THAT ANNIMATE FORM IN AND OUT
 
   handleClickA = (e) => {
-    console.log(this.state.data.class, e.target.classList.value)
     if (this.state.data.class === "closed" && e.target.classList.value === 'status_tog') {
       const dataCopy = { ...this.state.data };
       dataCopy.class = "open_status";
@@ -138,6 +134,10 @@ export class AdminEdit extends Component {
     }
   };
 
+
+  // TOGGLE THE LOCATION UPDATE FORM
+  //------CHECK THE LOCATION FORM OPEN VARIABLE ON STATE
+  //-------THIS VARIABLE REFERENCES A CLASS THAT ANNIMATE FORM IN AND OUT
 
   handleClickB = (e) => {
     if (this.state.data.class === 'closed' && e.target.classList.value === 'location_tog') {
@@ -184,8 +184,8 @@ export class AdminEdit extends Component {
           <label htmlFor="order_id_f2">ORDER ID</label>
           <input type="number" placeholder="ENTER ORDER ID" onChange={this.handleChange} value={this.state.data.ord.orderId} className="orderId" />
           <select name="" id="status_option" className="orderStatus" onChange={this.handleChange}>
-            <option value="Intransit">Intransit</option>
             <option value="Delivered">Delivered</option>
+            <option value="Intransit">Intransit</option>
           </select>
           <button type="submit" className="admin_submit">UPDATE </button>
         </form>

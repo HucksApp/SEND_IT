@@ -15,7 +15,6 @@ class AccEdit extends Component {
   //CHECK IF STATE IS PORPULATED AND PASS THE DATA UP
 
   handleClick = () => {
-    console.log(this.state.data.newVal)
     const newchk = parseInt(this.state.data.val);
     if (this.state.data.newVal === "") {
       toastr.warning('THE CHANGE INPUT IS EMPTY')
@@ -76,7 +75,6 @@ class AccEdit extends Component {
   //DYNAMIC INPUT TYPE VALUE BASED ON PROFILE FIELD TO BE EDITED
 
   render() {
-    console.log(this.props.typ)
 
     let edit;
     let holder;

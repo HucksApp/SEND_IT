@@ -1,60 +1,53 @@
-
-.modal > div {
+.modal>div {
     padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .modal {
     position: absolute;
     top: 30vh;
     left: 30%;
-    
     height: 40vh;
     width: 50%;
     background-color: #fff;
-    border: solid  yellow;
-  }
+    border: solid yellow;
+}
 
-  .Overlay {
+.Overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0, 0.6);
-  }
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
-
-
-
-.user-container{
+.user-container {
     display: flex;
     flex-flow: column;
     align-items: flex-start;
     width: 60%;
 }
-.account{
-    
+
+.account {
     display: flex;
     align-items: center;
     flex-flow: column;
 }
 
-.compartment{
+.compartment {
     border: solid thin #D3D3D3;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding:2% 5%;
+    padding: 2% 5%;
 }
 
-
-.f-value{
+.f-value {
     padding-left: 20%;
     display: flex;
     align-items: center;
@@ -63,34 +56,30 @@
     color: yellowgreen;
 }
 
-
-.editsub{
+.editsub {
     box-shadow: 2px 2px 2px 2px yellowgreen;
     border-radius: 10px;
-    color:#fff;
+    color: #fff;
     background-color: #f00;
-    width: 60px;
+    width: 80px;
     height: 30px;
     margin-top: 30px;
     font-weight: bolder;
 }
 
-
-.edit-i{
+.edit-i {
     background-color: inherit;
     width: 60%;
     border: none;
     border-bottom: solid tomato;
-
 }
 
-
-.edit:hover{
+.edit:hover {
     background-color: #f00;
-    }
-    
-.edit{
-background-color: #00f;
-color: #fff;
-font-weight: bolder;
+}
+
+.edit {
+    background-color: #00f;
+    color: #fff;
+    font-weight: bolder;
 }

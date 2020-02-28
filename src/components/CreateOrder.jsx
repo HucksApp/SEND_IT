@@ -4,7 +4,7 @@ import toastr from '../notification/Toastr'
 
 export class CreateOrder extends Component {
 
-
+// INITIALIZE
 constructor(props){
   super(props);
 
@@ -32,19 +32,19 @@ constructor(props){
 }
 
 
-
+// STORE INPUT
   handleChange = (e) => {
     const newData = { ...this.state.data };
     newData.order[e.target.id] = e.target.value;
     this.setState({
       data: newData
     })
-    console.log(this.state)
 
   }
 
+
+//STORE THE AUTO ADDRESS
   passAddress = ({ address, addressTyp }) => {
-    console.log({ address, addressTyp })
     const dataCopy = { ...this.state.data }
     dataCopy.empty = address;
     switch (addressTyp) {
@@ -61,6 +61,11 @@ constructor(props){
     }
 
   }
+
+
+  //HANDLE THE NEW ORDER FORM
+  //---PASS THE INPUT DATA STORED IN STATE UP
+  //---EMPTY THE ORDER FORM
 
   handleCreate = (e) => {
     e.preventDefault();

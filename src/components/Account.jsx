@@ -50,7 +50,7 @@ class Account extends Component {
 
     }
 
-
+    // OPEN MODAL
     handleOpenModal() {
         let newState = { ...this.state.data };
         newState.showModal = true;
@@ -59,6 +59,7 @@ class Account extends Component {
         });
     }
 
+    //  CLOSE MODAL
     handleCloseModal() {
         let newState = { ...this.state.data };
         newState.showModal = false;
@@ -69,9 +70,8 @@ class Account extends Component {
 
 
 
-
+    //UPDATE THE STATE TO REFLECT ACCOUNT CHANGES
     updateState = (data) => {
-        console.log(data)
         const nwdata = { ...this.state.data };
         const { val, keyToValue } = data;
         let keyToValueFormat;
@@ -104,8 +104,6 @@ class Account extends Component {
             keyToValue: keyToValueFormat
         };
 
-        console.log(payload)
-
         const token = sessionStorage.getItem('token');
         this.handleCloseModal();
 
@@ -119,15 +117,10 @@ class Account extends Component {
         }).then(res => {
             toastr.success(`YOU JUST UPDATED YOUR ${keyToValue} `);
         }).catch(err => toastr.error('THERE WAS AN ERROR UPDATING YOUR ' + keyToValue))
-
-
-
-
-
     };
 
 
-
+    //FETCH PROFILE AND STORE IN STATE
     componentDidMount() {
         Modal.setAppElement('body')
 
@@ -150,14 +143,11 @@ class Account extends Component {
                 let passHide = "";
 
 
-
-                console.log(this.state.data.user.user_password)
                 const newState = { ...this.state.data };
                 newState.user = data[0];
 
                 for (let i in data[0].user_password) {
                     passHide = passHide + " * ";
-                    console.log(i)
                 };
                 newState.passHide = passHide;
                 this.setState({
@@ -171,11 +161,15 @@ class Account extends Component {
     };
 
 
+
+    // EDIT BUTTON REACTION 
+    // ------CHECKS THE FIELD TYPE TO KNOW REACTION
+    //UPDATE A VARIABLE ON STATE THAT INDICATE THE FIELD BEING EDITED
+
     handleEdit = (e) => {
 
         if (e.target.classList.contains('password')) {
             const auth = window.prompt('PLEASE ENTER OLD PASSWORD');
-            console.log(auth)
             if (auth !== this.state.data.user.user_password && auth !== null) {
                 toastr.warning('IN CORRECT PASSWORD')
                 return
@@ -185,13 +179,11 @@ class Account extends Component {
 
             else {
                 toastr.info('ENTER THE NEW PASSWORD');
-                console.log('good 1')
             }
         } else {
 
         }
 
-        console.log(e.target.type)
         const newState = { ...this.state };
         const typ = e.target.classList.value.split(' ')[1];
         let typCopy = "";

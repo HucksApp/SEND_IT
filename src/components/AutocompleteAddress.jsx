@@ -3,7 +3,7 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import locationIcon from '../img/icons8-marker-50.png'
 
 
- class AutocompleteAddress extends Component {
+class AutocompleteAddress extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ import locationIcon from '../img/icons8-marker-50.png'
   }
 
 
- 
+  // STORE THE INPUT 
   handleChange = address => {
     const copydata = { ...this.state.data }
     copydata.address = address
@@ -27,6 +27,8 @@ import locationIcon from '../img/icons8-marker-50.png'
     })
   }
 
+
+  //STORE THE SELECTED ADDRESS TO STATE AND PASS IT UP 
 
   handleSelect = address => {
     const copydata = { ...this.state.data }
@@ -38,7 +40,6 @@ import locationIcon from '../img/icons8-marker-50.png'
     this.setState(
       { data: copydata }, () => {
         this.props.passAddress(this.state.data);
-        console.log(this.state, this.props.addressTyp);
 
       }
     );
@@ -54,8 +55,8 @@ import locationIcon from '../img/icons8-marker-50.png'
         onChange={this.handleChange}
         onSelect={this.handleSelect}
         value={this.state.data.address}
-        ref ={this.props.ref}
-        
+        ref={this.props.ref}
+
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div className="cont">
@@ -63,7 +64,7 @@ import locationIcon from '../img/icons8-marker-50.png'
             <input value={this.props.empty}   {...getInputProps({
               placeholder: "PLEASE ENTER" + this.props.addressType + "ADDRESS",
               className: 'location-search-input',
-            
+
             })} />
             <div className="autocomplete-dropdown-container" >
               {loading && <div style={{ background: '#fff' }}>LOADING POSSIBLE ADDRESSES...</div>}
@@ -78,7 +79,7 @@ import locationIcon from '../img/icons8-marker-50.png'
                         className
                       })}
                     >
-                      <span><img style={{height: '15px', width: '13px'}} src={locationIcon}/>{suggestion.description}</span>
+                      <span><img style={{ height: '15px', width: '13px' }} src={locationIcon} />{suggestion.description}</span>
                     </div>
                   );
                 })}

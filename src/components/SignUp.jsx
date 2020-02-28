@@ -58,14 +58,16 @@ class Signup extends Component {
         });
     }
 
-passAddress = ( { address } ) => {
-    const copydata = {...this.state.data};
-    copydata.user.houseAddress = address
-    this.setState({
-        data: copydata
-    })
-    console.log(this.state.data)
-}
+
+    // STORE AUTOCOMPLETE ADDRESS IN STATE
+
+    passAddress = ({ address }) => {
+        const copydata = { ...this.state.data };
+        copydata.user.houseAddress = address
+        this.setState({
+            data: copydata
+        })
+    }
 
 
     //HANDLE FORM SUBMIT
@@ -75,16 +77,14 @@ passAddress = ( { address } ) => {
 
     formAction = (e) => {
         e.preventDefault();
-        console.log(parseInt(this.state.data.user.phoneNumber))
         const numChk = parseInt(this.state.data.user.phoneNumber);
         if (numChk > 2349999999999 || numChk < 2340000000000) {
             toastr.warning('INCORRECT NUMBER FORMAT');
             toastr.info("ENTER NUMBER IN PROPER FORMAT TO PROCEED");
-        }else if(this.state.data.user.houseAddress === ""){
+        } else if (this.state.data.user.houseAddress === "") {
             toastr.warning('PLEASE ENTER HOUSE ADDRESS');
         } else {
             submitControl(true, this);
-            console.log(this.state)
             fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
                 method: "POST",
                 headers: {
@@ -136,8 +136,8 @@ passAddress = ( { address } ) => {
                     <div>
                         <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <AutocompleteAddress
-                        addressType =" HOUSE ADDRESS "
-                        passAddress={this.passAddress}
+                            addressType=" HOUSE ADDRESS "
+                            passAddress={this.passAddress}
                         />
 
                     </div>
