@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import submitControl from '../controls/formControl'
-import toastr from '../notification/Toastr'
+import submitControl from '../controls/formControl';
+import toastr from '../notification/Toastr';
+import AutocompleteAddress from './AutocompleteAddress';
+
 
 
 //STYLES
@@ -56,6 +58,15 @@ class Signup extends Component {
         });
     }
 
+    passAddress = ({ address }) => {
+        const copydata = { ...this.state.data };
+        copydata.user.houseAddress = address
+        this.setState({
+            data: copydata
+        })
+        console.log(this.state.data)
+    }
+
 
     //HANDLE FORM SUBMIT
     //---DISABLE FORM AFTER FIRST ENTRY
@@ -64,12 +75,16 @@ class Signup extends Component {
 
     formAction = (e) => {
         e.preventDefault();
+        console.log(parseInt(this.state.data.user.phoneNumber))
         const numChk = parseInt(this.state.data.user.phoneNumber);
         if (numChk > 2349999999999 || numChk < 2340000000000) {
-            toastr.warning('INCORRECT PHONE NUMBER FORMAT');
-            toastr.info("ENTER PHONE NUMBER IN PROPER FORMAT TO PROCEED");
+            toastr.warning('INCORRECT NUMBER FORMAT');
+            toastr.info("ENTER NUMBER IN PROPER FORMAT TO PROCEED");
+        } else if (this.state.data.user.houseAddress === "") {
+            toastr.warning('PLEASE ENTER HOUSE ADDRESS');
         } else {
             submitControl(true, this);
+            console.log(this.state)
             fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
                 method: "POST",
                 headers: {
@@ -120,7 +135,11 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{ color: '#f00' }}>*</sup>:</label>
-                        <input id="house_address" type="text" placeholder="ENTER HOUSE ADDRESS " onChange={this.updateState} />
+                        <AutocompleteAddress
+                            addressType=" HOUSE ADDRESS "
+                            passAddress={this.passAddress}
+                        />
+
                     </div>
                     <div>
                         <label htmlFor="email">EMAIL<sup style={{ color: '#f00' }}>*</sup>:</label>
