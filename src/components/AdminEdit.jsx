@@ -184,8 +184,8 @@ export class AdminEdit extends Component {
           <label htmlFor="order_id_f2">ORDER ID</label>
           <input type="number" placeholder="ENTER ORDER ID" onChange={this.handleChange} value={this.state.data.ord.orderId} className="orderId" />
           <select name="" id="status_option" className="orderStatus" onChange={this.handleChange}>
-            <option value="Delivered">Delivered</option>
             <option value="Intransit">Intransit</option>
+            <option value="Delivered">Delivered</option>
           </select>
           <button type="submit" className="admin_submit">UPDATE </button>
         </form>
