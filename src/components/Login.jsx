@@ -64,12 +64,10 @@ class Login extends Component {
             },
             body: JSON.stringify(this.state.data.user)
         }).then((res) => {
-            console.log(res);
             return res.json();
         }).then((data) => {
             submitControl(false, this);
 
-            console.log(data)
             if (data.valid === false) {
                 toastr.error(data.message)
 
