@@ -250,7 +250,7 @@ class Account extends Component {
             default:
                 return;
         };
-        console.log(typ)
+
 
 
     }
