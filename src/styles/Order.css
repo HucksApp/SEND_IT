@@ -84,6 +84,11 @@ p.order_id {
     color: #fff;
 }
 
+.edit-destination h3{
+    margin: 10px auto;
+    margin-bottom: 25px;
+}
+
 .destination_addressh {
     background-color: #FF8C00;
 }
