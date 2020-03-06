@@ -96,7 +96,7 @@ class Login extends Component {
                 <p>Dont't Have An Account? Go To Signup<span onClick={this.AdminSlide} id="adbtn">AD</span></p>
                     <div>
                         <label htmlFor="email">EMAIL:</label>
-                        <input id="email" type="email" placeholder="ENTER EMAIL" onChange={this.handleChange} required />
+                        <input id="email" type="email"  placeholder="ENTER EMAIL  jd@long.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={this.handleChange} required />
                     </div>
                     <div>
                         <label htmlFor="password" >PASSWORD:</label>

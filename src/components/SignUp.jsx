@@ -143,7 +143,7 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label htmlFor="email">EMAIL<sup style={{ color: '#f00' }}>*</sup>:</label>
-                        <input id="email" type="email" placeholder="ENTER EMAIL" onChange={this.updateState} required />
+                        <input id="email" type="email" placeholder="ENTER EMAIL  jd@long.com"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={this.updateState} required />
                     </div>
                     <div>
                         <label htmlFor="password" >PASSWORD<sup style={{ color: '#f00' }}>*</sup>:</label>
