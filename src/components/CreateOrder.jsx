@@ -114,7 +114,7 @@ constructor(props){
             <label htmlFor="destinationAddress" >DESTINATION:</label>
             <AutocompleteAddress
               
-              addressType="DESTINATION ADDRESS"
+              addressType=" DESTINATION "
               addressTyp="destination"
               passAddress={this.passAddress}
               ref = {this.emptyDes}
@@ -123,19 +123,19 @@ constructor(props){
           <div>
             <label htmlFor="pickupAddress" >PICKUP:</label>
             <AutocompleteAddress
-              addressType=" PICKUP ADDRESS "
-              addressTyp="pickup"
+              addressType=" PICKUP "
+              addressTyp="pickup "
               passAddress={this.passAddress}
               ref = {this.emptyPic}
             />
           </div>
           <div>
             <label htmlFor="description" >ORDER DESCRIPTION:</label>
-            <input id="description" type="text" onChange={this.handleChange} value={this.state.data.order.description} placeholder="PLEASE ENTER DESCRIPTION IN.. 123kg, 2Content 3Content" required />
+            <input id="description" type="text" onChange={this.handleChange} value={this.state.data.order.description} placeholder="DESCRIPTION OF CONTENT" required />
           </div>
           <div>
             <label htmlFor="receiverPhoneNumber" >RECEIVER PHONE:</label>
-            <input id="receiverPhoneNumber" type="number" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="ENTER THE RECEIVER PHONE NO IN FORMAT 234 12345678" min="2340000000000" max="2349999999999" required />
+            <input id="receiverPhoneNumber" type="number" onChange={this.handleChange} value={this.state.data.order.receiverPhoneNumber} placeholder="RECEIVERS NO IN 2348034567863" min="2340000000000" max="2349999999999" required />
           </div>
           <button type="submit" title="SUBMIT">CREATE</button>
         </form>

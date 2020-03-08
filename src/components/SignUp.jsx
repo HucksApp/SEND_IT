@@ -131,19 +131,19 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label htmlFor="phoneno" >PHONE NO<sup style={{ color: '#f00' }}>*</sup>: </label>
-                        <input id="phoneno" type="number" placeholder="ENTER PHONE NO IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} required />
+                        <input id="phoneno" type="number" placeholder="PHONE IN FORMAT 2349012345678" pattern="[2-4]{3}[0-9]{10}" onChange={this.updateState} required />
                     </div>
                     <div>
                         <label htmlFor="house_address" >HOUSE ADDRESS<sup style={{ color: '#f00' }}>*</sup>:</label>
                         <AutocompleteAddress
-                            addressType=" HOUSE ADDRESS "
+                            addressType=" HOUSE "
                             passAddress={this.passAddress}
                         />
 
                     </div>
                     <div>
                         <label htmlFor="email">EMAIL<sup style={{ color: '#f00' }}>*</sup>:</label>
-                        <input id="email" type="email" placeholder="ENTER EMAIL  jd@long.com"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={this.updateState} required />
+                        <input id="email" type="email" placeholder="ENTER EMAIL jd@long.com"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={this.updateState} required />
                     </div>
                     <div>
                         <label htmlFor="password" >PASSWORD<sup style={{ color: '#f00' }}>*</sup>:</label>
