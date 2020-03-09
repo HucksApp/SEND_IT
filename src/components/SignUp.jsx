@@ -85,6 +85,15 @@ class Signup extends Component {
             toastr.warning('PLEASE ENTER HOUSE ADDRESS');
         } else {
             submitControl(true, this);
+            console.log(this.state.data.user)
+            const data = {
+                username: this.state.data.user.username,
+                phoneNumber: parseInt(this.state.data.user.phoneNumber),
+                houseAddress: this.state.data.user.houseAddress,
+                email: this.state.data.user.email,
+                password: this.state.data.user.password
+            };
+
             fetch('https://s-i-api.herokuapp.com/api/v1/new_user', {
                 method: "POST",
                 headers: {
@@ -143,7 +152,7 @@ class Signup extends Component {
                     </div>
                     <div>
                         <label htmlFor="email">EMAIL<sup style={{ color: '#f00' }}>*</sup>:</label>
-                        <input id="email" type="email" placeholder="ENTER EMAIL jd@long.com"pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={this.updateState} required />
+                        <input id="email" type="email" placeholder="ENTER EMAIL jd@long.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={this.updateState} required />
                     </div>
                     <div>
                         <label htmlFor="password" >PASSWORD<sup style={{ color: '#f00' }}>*</sup>:</label>
