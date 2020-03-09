@@ -189,7 +189,7 @@ class Account extends Component {
         let typCopy = "";
         let typdisplay = "";
 
-
+        console.log(typ)
         switch (typ) {
 
             case 'user-name':
