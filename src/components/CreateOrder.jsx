@@ -124,7 +124,7 @@ constructor(props){
             <label htmlFor="pickupAddress" >PICKUP:</label>
             <AutocompleteAddress
               addressType=" PICKUP "
-              addressTyp="pickup "
+              addressTyp="pickup"
               passAddress={this.passAddress}
               ref = {this.emptyPic}
             />

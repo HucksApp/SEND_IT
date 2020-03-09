@@ -85,7 +85,6 @@ class Signup extends Component {
             toastr.warning('PLEASE ENTER HOUSE ADDRESS');
         } else {
             submitControl(true, this);
-            console.log(this.state.data.user)
             const data = {
                 username: this.state.data.user.username,
                 phoneNumber: parseInt(this.state.data.user.phoneNumber),
