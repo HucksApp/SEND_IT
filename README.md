@@ -85,7 +85,7 @@ map.html         | goods map location page
 Folder           |    File, Content and Description
 -----------------|------------------------------
 /config          | ***auth/auth.js***: requests Authorization, Authentication
-➞                | **8header.js***: request configuration Header
+➞                | ***header.js***: request configuration Header
 /db              | ***createSQL.js***: User and order table constructor function
 /router          | ***adminRoute.js***: Admin routes
 ➞                | ***index.js***: Router index 
