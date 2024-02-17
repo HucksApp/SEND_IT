@@ -28,7 +28,7 @@ Folder           |    File, Content and Description
 -----------------|------------------------------
 /components      | All jsx UI component
 /controls        | Geocode.js: Handler for convertion between physical address and long & lat 
-                  formControl.js: form Data control
+formControl.js: form Data control
 /img             | Images used in UI
 /notifications   | Toastr.js: Notification configuration
 /styles          | Css3 files
