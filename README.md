@@ -67,7 +67,7 @@ const uData = {
     email: johndoe@gmail.com
     password: "password"
     };
-let url = 'https://host_url/api/v1/old_user
+let url = "https://host_url/api/v1/old_user"
 
 fetch(url,{ method:"POST",
             headers:{
