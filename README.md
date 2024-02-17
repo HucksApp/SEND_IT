@@ -27,7 +27,7 @@ url: `<host_url>/api/v1/<routes>`
 ## Routes 🛣
 
 
-### Administrative Routes 👨🏾‍✈️
+### Administrative Routes 👷🏼‍♂️
 
 router/adminRoutes.js
 routes             |   request type          |       description
