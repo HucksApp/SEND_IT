@@ -57,7 +57,7 @@ route                    |   request type       |    description
 /new_user                | POST                 | creates user and grant access token
 
 
-## index Routes
+## Index Routes
 router/index.js: this files mount all the remaining routes to "/"
 
 ***example usage***
