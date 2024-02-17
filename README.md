@@ -20,6 +20,8 @@ run the api
  $ npm start
 ```
 starts a server on local host
+
+
 url: `<host_url>/api/v1/<routes>`
 
 ## Routes
