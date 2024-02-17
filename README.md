@@ -51,8 +51,7 @@ index.css        | setting Default app css
 
 Folder           |    File, Content and Description
 -----------------|------------------------------
-/handlers        | account.js: handlers and listeners for account related operation such as 
-➞                | authentication and authorization, ...
+/handlers        | account.js: handlers and listeners for account related operation such as authentication and authorization, ...
 ➞                | admin.js: handlers and listeners for administration related operations such as 
 ➞                | fetching all in store pakages information and changing them.
 ➞                | Create.js: Creating and struture UI components
