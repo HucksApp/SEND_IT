@@ -43,7 +43,7 @@ route                    |   request type       |    description
 /order                   | GET                  | All User orders
 /update_destination      | PUT                  | update order destination
 /map                     | GET                  | order location query
-/delete_order/:<order id>| DELETE               | delete order
+/delete_order/:[order id]| DELETE               | delete order
 /new_order               | POST                 | new order
 
 
