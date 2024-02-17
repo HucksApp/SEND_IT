@@ -108,6 +108,9 @@ index.css        | setting Default app css
  * back-api (https://github.com/HucksApp/SEND_IT/tree/back-api)
 
 
+## Authors 🖋
+
+Abiodun Aremu ~ HucksApp@gmail.com :
 
 
 
