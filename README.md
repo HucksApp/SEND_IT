@@ -99,7 +99,7 @@ App.js           | app root
 .env             | set hidden enviroment variables
 index.css        | setting Default app css
 
-# USAGES
+# USAGE
 
  * front-vanila Branch (https://github.com/HucksApp/SEND_IT/tree/front-vanila)
 
