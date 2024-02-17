@@ -28,7 +28,7 @@ Folder           |    File, Content and Description
 -----------------|------------------------------
 /components      | All jsx UI component
 /controls        | Geocode.js: Handler for convertion between physical address and long & lat 
-                 | formControl.js: form Data control
+➞                 | formControl.js: form Data control
 /img             | Images used in UI
 /notifications   | Toastr.js: Notification configuration
 /styles          | Css3 files
@@ -48,18 +48,18 @@ index.css        | setting Default app css
 Folder           |    File, Content and Description
 -----------------|------------------------------
 /handlers        | account.js: handlers and listeners for account related operation such as 
-                 | authentication and authorization, ...
-                 | admin.js: handlers and listeners for administration related operations such as 
-                 | fetching all in store pakages information and changing them.
-                 | Create.js: Creating and struture UI components
-                 | index.js: index toggle  handler
-                 | order.js: handlers, listeners and UI components creation for goods order related operation
-                 | signin.js: Listener for switching between Admin or User loging form
+➞                | authentication and authorization, ...
+➞                | admin.js: handlers and listeners for administration related operations such as 
+➞                | fetching all in store pakages information and changing them.
+➞                | Create.js: Creating and struture UI components
+➞                | index.js: index toggle  handler
+➞                | order.js: handlers, listeners and UI components creation for goods order related operation
+➞                | signin.js: Listener for switching between Admin or User loging form
 /updateHandlers  | acount_update.js: Handler for account information update 
-                 | admin_update.js: Handler for admin  update operations for all goods and accounts
-                 | order_update.js: Handler for user orders update operations, for all goods 
-                 | signin_update.js: Handler for user signin and Admin signin 
-                 | signup_update.js: Handler for user signin and Admin signup 
+➞                | admin_update.js: Handler for admin  update operations for all goods and accounts
+➞                | order_update.js: Handler for user orders update operations, for all goods 
+➞                | signin_update.js: Handler for user signin and Admin signin 
+➞                | signup_update.js: Handler for user signin and Admin signup 
 /imges           | Images used in UI
 /notifications   | Toastr.js: Notification configuration
 /styles          | Css3 files
