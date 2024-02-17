@@ -1,10 +1,12 @@
-# Andela-Send_IT
+# SEND_IT 🚛
 
 ## Description
+SEND_IT is a Fullstack project Exercise by Andela
+
 SEND_IT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories
 
 
-## Repository Structure
+## Repository Structure 🔗
 
 Branch                  |     Description
 ------------------------|---------------------
