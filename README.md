@@ -1,5 +1,5 @@
 # Description
-SendiT frontend with react.js
+SendiT frontend with HTML5, CSS3, Vanila Javascript
 
 ## Folder structure
 refer to (https://github.com/HucksApp/SEND_IT)
