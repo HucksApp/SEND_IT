@@ -10,7 +10,7 @@ refer to (https://github.com/HucksApp/SEND_IT)
 ```
 $ git clone --single-branch --branch front-vanila https://github.com/HucksApp/SEND_IT.git
 ```
-* ssh
+* SSH
 ```
 $ git clone -b front-vanila git@github.com:HucksApp/SEND_IT.git
 ```
