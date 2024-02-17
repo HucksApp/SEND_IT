@@ -101,11 +101,11 @@ index.css        | setting Default app css
 
 # USAGES
 
- [front-vanila Branch (https://github.com/HucksApp/SEND_IT/tree/front-vanila)]
+ * front-vanila Branch (https://github.com/HucksApp/SEND_IT/tree/front-vanila)
 
- [s-i-react (https://github.com/HucksApp/SEND_IT/tree/s-i-react)]
+ * s-i-react (https://github.com/HucksApp/SEND_IT/tree/s-i-react)
 
- [back-api (https://github.com/HucksApp/SEND_IT/tree/back-api)]
+ * back-api (https://github.com/HucksApp/SEND_IT/tree/back-api)
 
 
 
