@@ -15,9 +15,11 @@ s-i-react branch        | SendiT frontend with react.js
 front-vanila            | SendiT frontend with HTML5/CSS3, Vanila Javascript    
 back-api                | SendiT backend with Nodejs -> Express.js, PostgreSQL, google api -> item location map
 
+
+
 ⚠️🚼 structure folders, files, functions listed are only those of Note ‼️
 
-## s-i-react branch   
+## s-i-react Branch   
 
 
 ### Folder structure
@@ -41,7 +43,9 @@ App.css          | setting Default app css
 index.css        | setting Default app css
 
 
-## front-vanila 
+
+
+## front-vanila Branch
 
 ### Folder structure
 
@@ -74,3 +78,36 @@ index.html       | index html page
 map.html         | goods map location page
 
 **Note** 📌 All html pages functions as name 
+
+
+## back-api
+
+
+Folder           |    File, Content and Description
+-----------------|------------------------------
+/config          | auth/auth.js: requests Authorization, Authentication
+➞                | header.js: request configuration Header
+/db              | createSQL.js: User and order table constructor function
+/router          | adminRoute.js: Admin routes
+➞                | index.js: Router index 
+➞                | orderRoute.js: User Order routes
+➞                | userRoute.js: User account routes 
+
+File             |     Content and Description
+-----------------|-----------------------------
+App.js           | app root
+.env             | set hidden enviroment variables
+index.css        | setting Default app css
+
+# USAGES
+
+ [front-vanila Branch (https://github.com/HucksApp/SEND_IT/tree/front-vanila)]
+
+ [s-i-react (https://github.com/HucksApp/SEND_IT/tree/s-i-react)]
+
+ [back-api (https://github.com/HucksApp/SEND_IT/tree/back-api)]
+
+
+
+
+
