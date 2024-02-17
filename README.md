@@ -63,7 +63,7 @@ router/index.js: this files mount all the remaining routes to "/"
 
 
 
-***example usage***
+### example usage
 
 ```
 const uData = {
