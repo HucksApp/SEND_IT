@@ -10,8 +10,8 @@ SEND_IT is a courier service that helps users deliver parcels to different desti
 
 Branch                  |     Description
 ------------------------|---------------------
-master branch           | Project Descriptions
-s-i-react branch        | SendiT frontend with react.js
+master                  | Project Descriptions
+s-i-react               | SendiT frontend with react.js
 front-vanila            | SendiT frontend with HTML5/CSS3, Vanila Javascript    
 back-api                | SendiT backend with Nodejs -> Express.js, PostgreSQL, google api -> item location map
 
@@ -29,10 +29,10 @@ back-api                | SendiT backend with Nodejs -> Express.js, PostgreSQL, 
 Folder           |    File, Content and Description
 -----------------|------------------------------
 /components      | All jsx UI component
-/controls        | Geocode.js: Handler for convertion between physical address and long & lat 
-➞                 | formControl.js: form Data control
+/controls        | **Geocode.js**: Handler for convertion between physical address and long & lat 
+➞                | **formControl.js**: form Data control
 /img             | Images used in UI
-/notifications   | Toastr.js: Notification configuration
+/notifications   | **Toastr.js**: Notification configuration
 /styles          | Css3 files
 
 
@@ -51,20 +51,20 @@ index.css        | setting Default app css
 
 Folder           |    File, Content and Description
 -----------------|------------------------------
-/handlers        | account.js: handlers and listeners for account related operation such as authentication and authorization, ...
-➞                | admin.js: handlers and listeners for administration related operations such as 
+/handlers        | **account.js**: handlers and listeners for account related operation such as authentication and authorization, ...
+➞                | **admin.js**: handlers and listeners for administration related operations such as 
 ➞                | fetching all in store pakages information and changing them.
-➞                | Create.js: Creating and struture UI components
-➞                | index.js: index toggle  handler
-➞                | order.js: handlers, listeners and UI components creation for goods order related operation
-➞                | signin.js: Listener for switching between Admin or User loging form
-/updateHandlers  | acount_update.js: Handler for account information update 
-➞                | admin_update.js: Handler for admin  update operations for all goods and accounts
-➞                | order_update.js: Handler for user orders update operations, for all goods 
+➞                | **Create.js**: Creating and struture UI components
+➞                | **index.js**: index toggle  handler
+➞                | **order.js**: handlers, listeners and UI components creation for goods order related operation
+➞                | **signin.js**: Listener for switching between Admin or User loging form
+/updateHandlers  | **acount_update.js**: Handler for account information update 
+➞                | **admin_update.js**: Handler for admin  update operations for all goods and accounts
+➞                | **order_update.js**: Handler for user orders update operations, for all goods 
 ➞                | signin_update.js: Handler for user signin and Admin signin 
-➞                | signup_update.js: Handler for user signin and Admin signup 
+➞                |** signup_update.js**: Handler for user signin and Admin signup 
 /imges           | Images used in UI
-/notifications   | Toastr.js: Notification configuration
+/notifications   | **Toastr.js**: Notification configuration
 /styles          | Css3 files
 
 
@@ -84,13 +84,13 @@ map.html         | goods map location page
 
 Folder           |    File, Content and Description
 -----------------|------------------------------
-/config          | auth/auth.js: requests Authorization, Authentication
-➞                | header.js: request configuration Header
-/db              | createSQL.js: User and order table constructor function
-/router          | adminRoute.js: Admin routes
-➞                | index.js: Router index 
-➞                | orderRoute.js: User Order routes
-➞                | userRoute.js: User account routes 
+/config          | **auth/auth.js**: requests Authorization, Authentication
+➞                | **header.js**: request configuration Header
+/db              | **createSQL.js**: User and order table constructor function
+/router          | **adminRoute.js**: Admin routes
+➞                | **index.js: Router** index 
+➞                | **orderRoute.js**: User Order routes
+➞                | **userRoute.js**: User account routes 
 
 File             |     Content and Description
 -----------------|-----------------------------
