@@ -47,8 +47,10 @@ index.css        | setting Default app css
 
 Folder           |    File, Content and Description
 -----------------|------------------------------
-/handlers        | account.js: handlers and listeners for account related operation such as authentication and authorization, ...
-                 | admin.js: handlers and listeners for administration related operations such as fetching all in store pakages information and changing them.
+/handlers        | account.js: handlers and listeners for account related operation such as 
+                 |authentication and authorization, ...
+                 | admin.js: handlers and listeners for administration related operations such as 
+                 |fetching all in store pakages information and changing them.
                  | Create.js: Creating and struture UI components
                  | index.js: index toggle  handler
                  | order.js: handlers, listeners and UI components creation for goods order related operation
@@ -70,4 +72,5 @@ admin.html       | Admin html page
 home.html        | user Home html page
 index.html       | index html page
 map.html         | goods map location page
+
 **Note** 📌 All html pages functions as name 
