@@ -24,9 +24,10 @@ starts a server on local host
 
 url: `<host_url>/api/v1/<routes>`
 
-## Routes
+## Routes 🛣
 
-### Administrative Routes
+
+### Administrative Routes 👨🏾‍✈️
 
 router/adminRoutes.js
 routes             |   request type          |       description
@@ -37,7 +38,7 @@ routes             |   request type          |       description
 /admin             | POST                    | Admin authentication and authorization
 
 
-### Order Routes
+### Order Routes 📦
 
 router/orderRoutes.js
 route                    |   request type       |    description
@@ -49,7 +50,7 @@ route                    |   request type       |    description
 /new_order               | POST                 | new order
 
 
-### User Routes
+### User Routes 🙎🏾‍♂️ 🙍🏾‍♀️
 router/userRoutes.js
 route                    |   request type       |    description
 -------------------------|----------------------|-----------------------------
