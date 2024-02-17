@@ -60,6 +60,9 @@ route                    |   request type       |    description
 ## Index Routes
 router/index.js: this files mount all the remaining routes to "/"
 
+
+
+
 ***example usage***
 
 ```
